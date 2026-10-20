@@ -5239,9 +5239,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 48.4,
+  "changed_per_1000": 90.7,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5261,9 +5261,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 34.6,
+  "changed_per_1000": 112.3,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5283,9 +5283,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 19.0,
+  "changed_per_1000": 23.7,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5307,9 +5307,9 @@
   "lint_after_rules": [
    "sentence_end_repetition"
   ],
-  "changed_per_1000": 37.4,
+  "changed_per_1000": 35.3,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5331,9 +5331,9 @@
   "lint_after_rules": [
    "sentence_end_repetition"
   ],
-  "changed_per_1000": 30.7,
+  "changed_per_1000": 18.1,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5357,7 +5357,7 @@
   ],
   "changed_per_1000": 2.4,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5377,9 +5377,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 5.5,
+  "changed_per_1000": 8.2,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5403,7 +5403,7 @@
   ],
   "changed_per_1000": 12.9,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5425,9 +5425,9 @@
   "lint_after_rules": [
    "sentence_end_repetition"
   ],
-  "changed_per_1000": 28.6,
+  "changed_per_1000": 20.0,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5447,9 +5447,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 60.8,
+  "changed_per_1000": 12.7,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5471,7 +5471,7 @@
   "lint_after_rules": [],
   "changed_per_1000": 5.3,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5491,9 +5491,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 2.7,
+  "changed_per_1000": 8.2,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5513,9 +5513,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 42.4,
+  "changed_per_1000": 31.8,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5535,9 +5535,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 2.5,
+  "changed_per_1000": 5.1,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5559,7 +5559,7 @@
   "lint_after_rules": [],
   "changed_per_1000": 5.2,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5579,9 +5579,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 42.5,
+  "changed_per_1000": 22.4,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",
@@ -5601,9 +5601,9 @@
    "info": 0
   },
   "lint_after_rules": [],
-  "changed_per_1000": 35.3,
+  "changed_per_1000": 32.9,
   "identical": false,
-  "service_tier": "ultrafast"
+  "service_tier": "default"
  },
  {
   "cond": "body",

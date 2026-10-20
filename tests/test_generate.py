@@ -56,7 +56,7 @@ README_FORBIDDEN = [
     ("ここに書きます", re.compile(r"ここに書きます")),
     ("予定", re.compile(r"予定")),
     ("今後", re.compile(r"今後")),
-    ("いずれ", re.compile(r"いずれ")),
+    ("いずれ", re.compile(r"いずれ(?![もか])")),  # 「いずれも」「いずれか」は今後の話ではない
     ("近日", re.compile(r"近日")),
 ]
 
