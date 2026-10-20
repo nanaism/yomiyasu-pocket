@@ -7,7 +7,7 @@
 | 名前 | 中身 |
 |---|---|
 | `format`、`format_version` | `yomiyasu-pocket-extract` と `1` |
-| `release` | こちらの版。本体の版とこちらの連番を並べた `2.1.1-r1` の形 |
+| `release` | pocket 自身の版（`1.0.0` のような3つの数）。生成元の本体の版は `body` に書く |
 | `body` | 本体の `repository`、`version`（SKILL.md の `metadata.version`）、`tag`、`commit`（40桁） |
 | `sections` | 本体の節の一覧 |
 | `pieces` | 指示文の部分の一覧。この順につなげたものが指示文になる（区切りの文字は入れない） |

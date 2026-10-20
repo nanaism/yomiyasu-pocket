@@ -1,7 +1,7 @@
 {
   "format": "yomiyasu-pocket-manifest",
   "format_version": 1,
-  "release": "2.1.1-r1",
+  "release": "1.0.0",
   "body": {
     "repository": "https://github.com/nanaism/yomiyasu",
     "version": "2.1.1",

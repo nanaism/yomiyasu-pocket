@@ -11,7 +11,7 @@ AIの指示欄に貼って使うことを考えて作りました。スキルや
 [yomiyasu](https://github.com/nanaism/yomiyasu)（以下「本体」）の決まりのうち、意味を守る決まりと、よく使う直し方だけを短く書き直して入れています。
 
 <!-- pocket:version:begin -->
-版 2.1.1-r1（本体 v2.1.1、コミット fbe02c93877d697cc53d9377b7a45dd8a1dd99b3 から生成）
+版 1.0.0（本体 v2.1.1、コミット fbe02c93877d697cc53d9377b7a45dd8a1dd99b3 から生成）
 <!-- pocket:version:end -->
 
 ## こんなときに
@@ -107,7 +107,7 @@ pocket は、スキルを読み込めず指示欄に貼るしかないときや�
 
 ## 作り直すとき
 
-指示文は、本体の版ごとに作り直します。抽出表 `extract/table.json` は、本体のファイルの場所と見出しで節を指し、節ごとに中身の sha256 を持っています。生成には Python 3.9 以上の標準ライブラリだけを使います。
+指示文は、本体の版が上がったときに作り直します。抽出表 `extract/table.json` は、本体のファイルの場所と見出しで節を指し、節ごとに中身の sha256 を持っています。生成には Python 3.9 以上の標準ライブラリだけを使います。
 
 1. 本体の新しい版のタグを `body/` に取り出します（下の例は v2.1.1 です）。
 
@@ -115,7 +115,7 @@ pocket は、スキルを読み込めず指示欄に貼るしかないときや�
    git clone --depth 1 --branch v2.1.1 https://github.com/nanaism/yomiyasu body
    ```
 
-2. 本体の版が変わったら、`extract/table.json` の `body`（version、tag、commit）と `release` を書き直します。`release` は、本体の版とこちらの連番を並べた `2.1.1-r1` の形です。
+2. 本体の版が変わったら、`extract/table.json` の `body`（version、tag、commit）を書き直します。`release` は pocket 自身の版（`1.0.0` のような3つの数）で、指示文や生成元の本体の版が変わったときに上げます。生成元の本体の版とコミットは、README の版の行、`MANIFEST.json`、`SOURCES.md` に書き出されます。
 3. 生成します。
 
    ```bash

@@ -2,7 +2,7 @@
 
 <!-- このファイルは tools/generate.py が作ります。手で直さず、extract/table.json を直して作り直してください。 -->
 
-版 2.1.1-r1。本体 https://github.com/nanaism/yomiyasu のタグ v2.1.1（コミット fbe02c93877d697cc53d9377b7a45dd8a1dd99b3）の節から作りました。
+版 1.0.0。本体 https://github.com/nanaism/yomiyasu のタグ v2.1.1（コミット fbe02c93877d697cc53d9377b7a45dd8a1dd99b3）の節から作りました。
 
 ## 文ごとの出どころ
 

@@ -39,7 +39,7 @@ TABLE_FORMAT = "yomiyasu-pocket-extract"
 TABLE_FORMAT_VERSION = 1
 MANIFEST_FORMAT = "yomiyasu-pocket-manifest"
 MANIFEST_FORMAT_VERSION = 1
-RELEASE_RE = re.compile(r"^\d+\.\d+\.\d+-r\d+$")
+RELEASE_RE = re.compile(r"^\d+\.\d+\.\d+$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 KINDS = ("rewritten", "verbatim")
 # 部分の役割。output は返し方、meaning は意味を守る決まり、style は直す型、restraint は直さないもの。
@@ -179,7 +179,7 @@ def check_table(t):
     if t.get("format") != TABLE_FORMAT or t.get("format_version") != TABLE_FORMAT_VERSION:
         errs.append("format と format_version が %s / %d ではありません" % (TABLE_FORMAT, TABLE_FORMAT_VERSION))
     if not RELEASE_RE.match(str(t.get("release", ""))):
-        errs.append("release が 2.1.1-r1 の形ではありません: %r" % t.get("release"))
+        errs.append("release が 1.0.0 のような3つの数の形ではありません: %r" % t.get("release"))
     body = t.get("body") or {}
     for k in ("repository", "version", "tag", "commit"):
         if not isinstance(body.get(k), str) or not body.get(k):

@@ -281,8 +281,7 @@ class CommittedFilesTest(unittest.TestCase):
         self.assertEqual(self.instruction, "".join(p["text"] for p in pieces) + "\n")
 
     def test_release_format(self):
-        self.assertRegex(self.table["release"], r"^\d+\.\d+\.\d+-r\d+$")
-        self.assertTrue(self.table["release"].startswith(self.table["body"]["version"] + "-r"))
+        self.assertRegex(self.table["release"], r"^\d+\.\d+\.\d+$")
 
     def test_body_commit_is_recorded_everywhere(self):
         commit = self.table["body"]["commit"]
@@ -425,7 +424,7 @@ def tiny_table(pieces=None):
     return {
         "format": "yomiyasu-pocket-extract",
         "format_version": 1,
-        "release": "9.9.9-r1",
+        "release": "9.9.10",
         "body": {"repository": "https://example.invalid/tiny", "version": "9.9.9", "tag": "v9.9.9",
                  "commit": "0" * 40},
         "sections": [
@@ -514,7 +513,7 @@ class TinyBodyTest(unittest.TestCase):
         self.assertEqual(code, 0, err)
         self.assertEqual(read(os.path.join(self.repo, "pocket.txt")), "意味を変えずに直します。足しません。\n")
         readme = read(os.path.join(self.repo, "README.md"))
-        self.assertIn("版 9.9.9-r1（本体 v9.9.9、コミット %s から生成）" % ("0" * 40), readme)
+        self.assertIn("版 9.9.10（本体 v9.9.9、コミット %s から生成）" % ("0" * 40), readme)
         size = "{:,}字の SKILL.md（v9.9.9）".format(len(TINY_SKILL))
         self.assertIn("本体は<!-- pocket:body-size:begin -->%s<!-- pocket:body-size:end -->です。" % size, readme)
         self.assertIn("| 長さ | <!-- pocket:body-size-row:begin -->%s<!-- pocket:body-size-row:end --> |" % size,
@@ -582,7 +581,7 @@ class TinyBodyTest(unittest.TestCase):
 
     def test_bad_table_stops(self):
         t = tiny_table()
-        t["release"] = "9.9.9"
+        t["release"] = "9.9.9-r1"
         t["pieces"][0]["sources"] = ["S99"]
         self.set_table(t)
         code, out, err = self.gen()
