@@ -4,15 +4,18 @@
 
 ## これは何？
 
-yomiyasu-pocket は、AIが書いた日本語を読みやすく整えるための、400字以内の短い指示文です。
+yomiyasu-pocket は、AIが書いた日本語を読みやすく整えるための、400字以内の短い指示文です。[yomiyasu](https://github.com/nanaism/yomiyasu)（以下「本体」）の決まりのうち、意味を守る決まりと、よく使う直し方だけを短く書き直して入れています。
 
-AIの指示欄に貼って使うことを考えて作りました。スキルやファイルは使いません。
+**使うのは [`pocket.txt`](./pocket.txt) の指示文だけです。** 同じ文を、下の「[指示文](#指示文)」の節にも載せています。AIの指示欄に貼って使うことを考えて作ったもので、スキルの仕組みや検査のスクリプトは使いません。
 
-[yomiyasu](https://github.com/nanaism/yomiyasu)（以下「本体」）の決まりのうち、意味を守る決まりと、よく使う直し方だけを短く書き直して入れています。
+このリポジトリのほかのファイルは、指示文を本体から作り直したり、指示文を選ぶために測ったりするためのものです。使うときには要りません。
 
-<!-- pocket:version:begin -->
-版 1.0.0（本体 v2.1.1、コミット fbe02c93877d697cc53d9377b7a45dd8a1dd99b3 から生成）
-<!-- pocket:version:end -->
+| ファイル・フォルダ | 中身 |
+|---|---|
+| `pocket.txt` | 指示文。これをAIの指示欄に貼ります |
+| `extract/`、`tools/`、`SOURCES.md`、`MANIFEST.json` | 指示文を本体から作り直すための抽出表、生成のスクリプト、出どころの一覧と記録 |
+| `measurements/` | 指示文を選ぶために測った結果 |
+| `tests/` | 生成の試験 |
 
 ## こんなときに
 
@@ -115,7 +118,7 @@ pocket は、スキルを読み込めず指示欄に貼るしかないときや�
    git clone --depth 1 --branch v2.1.1 https://github.com/nanaism/yomiyasu body
    ```
 
-2. 本体の版が変わったら、`extract/table.json` の `body`（version、tag、commit）を書き直します。`release` は pocket 自身の版（`1.0.0` のような3つの数）で、指示文や生成元の本体の版が変わったときに上げます。生成元の本体の版とコミットは、README の版の行、`MANIFEST.json`、`SOURCES.md` に書き出されます。
+2. 本体の版が変わったら、`extract/table.json` の `body`（version、tag、commit）を書き直します。`release` は pocket 自身の版（`1.0.0` のような3つの数）で、指示文や生成元の本体の版が変わったときに上げます。生成元の本体の版とコミットは、`MANIFEST.json` と `SOURCES.md` に書き出されます。
 3. 生成します。
 
    ```bash
@@ -136,7 +139,7 @@ pocket は、スキルを読み込めず指示欄に貼るしかないときや�
 
    - 終了コード 1: `--check` で、リポジトリのファイルが生成物と違います。手順3で作り直します。
 
-`pocket.txt`、`MANIFEST.json`、`SOURCES.md` と、この README の版の行、指示文、本体の SKILL.md の字数は、生成のスクリプトが書きます。手で直さないでください。
+`pocket.txt`、`MANIFEST.json`、`SOURCES.md` と、この README の指示文と本体の SKILL.md の字数は、生成のスクリプトが書きます。手で直さないでください。
 
 ## ライセンス
 

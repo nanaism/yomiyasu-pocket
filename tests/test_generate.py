@@ -289,7 +289,6 @@ class CommittedFilesTest(unittest.TestCase):
         manifest = json.loads(read(os.path.join(REPO, "MANIFEST.json")))
         self.assertEqual(manifest["body"]["commit"], commit)
         self.assertEqual(manifest["release"], self.table["release"])
-        self.assertIn(commit, read(os.path.join(REPO, "README.md")))
         self.assertIn(commit, read(os.path.join(REPO, "SOURCES.md")))
 
     def test_manifest_describes_instruction(self):
@@ -442,8 +441,6 @@ def tiny_table(pieces=None):
 
 TINY_README = """# tiny
 
-<!-- pocket:version:begin -->
-<!-- pocket:version:end -->
 
 本体は<!-- pocket:body-size:begin --><!-- pocket:body-size:end -->です。
 
@@ -513,7 +510,9 @@ class TinyBodyTest(unittest.TestCase):
         self.assertEqual(code, 0, err)
         self.assertEqual(read(os.path.join(self.repo, "pocket.txt")), "意味を変えずに直します。足しません。\n")
         readme = read(os.path.join(self.repo, "README.md"))
-        self.assertIn("版 9.9.10（本体 v9.9.9、コミット %s から生成）" % ("0" * 40), readme)
+        self.assertNotIn("pocket:version", readme)
+        self.assertIn("版 9.9.10", read(os.path.join(self.repo, "SOURCES.md")))
+        self.assertIn("0" * 40, read(os.path.join(self.repo, "SOURCES.md")))
         size = "{:,}字の SKILL.md（v9.9.9）".format(len(TINY_SKILL))
         self.assertIn("本体は<!-- pocket:body-size:begin -->%s<!-- pocket:body-size:end -->です。" % size, readme)
         self.assertIn("| 長さ | <!-- pocket:body-size-row:begin -->%s<!-- pocket:body-size-row:end --> |" % size,
@@ -612,7 +611,7 @@ class TinyBodyTest(unittest.TestCase):
             self.assert_nothing_written()
 
     def test_missing_readme_marker_stops(self):
-        for marker in ("<!-- pocket:version:end -->", "<!-- pocket:body-size:begin -->",
+        for marker in ("<!-- pocket:instruction:end -->", "<!-- pocket:body-size:begin -->",
                        "<!-- pocket:body-size-row:end -->", "<!-- pocket:instruction:begin -->"):
             write(os.path.join(self.repo, "README.md"), TINY_README.replace(marker, ""))
             self.snapshot()

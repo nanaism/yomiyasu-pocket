@@ -9,7 +9,7 @@
   python3 tools/generate.py --body <本体> --out <フォルダ>    （生成物を別のフォルダに書く。試験用）
 
 作るもの: pocket.txt、MANIFEST.json、SOURCES.md、README.md の生成する部分（印のコメントのあいだ）。
-README の生成する部分は、版の行、指示文、本体の SKILL.md の字数（len で数え、41,445字の形で書く）。
+README の生成する部分は、指示文と本体の SKILL.md の字数（len で数え、41,445字の形で書く）。生成元の本体の版とコミットは MANIFEST.json と SOURCES.md に書く。
 時刻は入れないので、同じ抽出表と同じ本体からは同じバイト列ができる。
 
 終了コード:
@@ -44,7 +44,7 @@ COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 KINDS = ("rewritten", "verbatim")
 # 部分の役割。output は返し方、meaning は意味を守る決まり、style は直す型、restraint は直さないもの。
 ROLES = ("output", "meaning", "style", "restraint")
-README_REGIONS = ("instruction", "version", "body-size", "body-size-row")
+README_REGIONS = ("instruction", "body-size", "body-size-row")
 
 HEADING_RE = re.compile(r"^ {0,3}(#{1,6})(?:[ \t]|$)")
 FENCE_RE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
@@ -363,12 +363,12 @@ def region_re(name):
 
 
 def build_readme(readme, table, instruction, skill_chars):
-    """README の印のあいだを埋める。version と instruction は行の塊、body-size と body-size-row は文の中に置く。"""
+    """README の印のあいだを埋める。instruction は行の塊、body-size と body-size-row は文の中に置く。
+    生成元の本体の版とコミットは README には書かず、MANIFEST.json と SOURCES.md に書く。"""
     body = table["body"]
     size = "%sの SKILL.md（%s）" % (size_label(skill_chars), body["tag"])
     fills = {
         "instruction": "\n```text\n" + instruction + "\n```\n",
-        "version": "\n版 %s（本体 %s、コミット %s から生成）\n" % (table["release"], body["tag"], body["commit"]),
         "body-size": size,
         "body-size-row": size,
     }
