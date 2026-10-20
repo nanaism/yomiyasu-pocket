@@ -14,7 +14,9 @@
 - 条件 pocket:<名前>: variants.json（既定は measurements/variants.json）の指示文と原稿を1つの依頼にして渡す（指示文、空行、原稿）。スキルもファイルも置かない。
   砂場は read-only。後の文は最後の返事（全体がコードの囲みに入っていれば中身を取り出し、そのことを記録する）。
 - Codex の起動の形は下の CODEX_ARGV（--ignore-user-config ほか）。
-  モデル gpt-6-astra、effort high、-c service_tier="ultrafast"。CODEX_HOME は測定用のもの（auth.json は読まない）。
+  モデル gpt-6-astra、effort high。CODEX_HOME は測定用のもの（auth.json は読まない）。
+- 速さ（service_tier）は --service-tier（なければ環境変数 POCKET_SERVICE_TIER）。既定の default は指定を付けない
+  （Codex の既定の速さ）。default 以外を渡すと -c service_tier="<値>" を付ける。
 - 結果は runs/<条件>/r<回>/<群>/<名前>/ に、before.md、after.md、last-message.txt、stderr.txt、events.jsonl、result.json。
   status: ok、no_out（動いたが後の文がない）、failed（timeout、returncode が0でない）。ok と no_out は飛ばす。
   --redo-failed で failed だけをやり直す。
@@ -40,7 +42,7 @@ CODEX_HOME = None  # main で --codex-home から決める
 CODEX_BIN = "codex"
 MODEL = "gpt-6-astra"
 EFFORT = "high"
-TIER = "ultrafast"
+TIER = "default"  # main で --service-tier から決める。default は指定を付けない（Codex の既定の速さ）
 GROUPS = ("raw_ai", "blacklist_ai", "edge_cases", "human")
 BODY_PROMPT = "$yomiyasu:yomiyasu で draft.md を推敲し、最終稿を out.md に保存してください。"
 LOCK = threading.Lock()
@@ -115,8 +117,9 @@ def build_argv(ws, run_dir, sandbox):
     if sandbox != "workspace-write":
         i = out.index("-s")
         out[i + 1] = sandbox
-    i = out.index("-")
-    out[i:i] = ["-c", 'service_tier="%s"' % TIER]
+    if TIER != "default":
+        i = out.index("-")
+        out[i:i] = ["-c", 'service_tier="%s"' % TIER]
     return out
 
 
@@ -206,13 +209,15 @@ def run_one(cond, run_idx, key, root, timeout, instruction):
 
 
 def main():
-    global ARGS, TREE, CODEX_HOME, CODEX_BIN
+    global ARGS, TREE, CODEX_HOME, CODEX_BIN, TIER
     ap = argparse.ArgumentParser()
     ap.add_argument("--body-tree", default=os.environ.get("BODY_DIR") or os.path.join(REPO, "body"),
                     help="本体 v2.1.1 の木（既定は環境変数 BODY_DIR か、リポジトリの body/）")
     ap.add_argument("--codex-home", default=os.environ.get("CODEX_HOME", ""),
                     help="測定用の CODEX_HOME（既定は環境変数 CODEX_HOME）")
     ap.add_argument("--codex-bin", default="codex", help="Codex CLI のコマンド")
+    ap.add_argument("--service-tier", default=os.environ.get("POCKET_SERVICE_TIER") or "default",
+                    help="Codex の service_tier（既定は環境変数 POCKET_SERVICE_TIER か default。default は指定を付けない）")
     ap.add_argument("--variants", default=os.path.join(DEV, "variants.json"), help="pocket の指示文の候補")
     ap.add_argument("--cond", required=True)
     ap.add_argument("--runs", default="1")
@@ -225,6 +230,7 @@ def main():
     ARGS = ap.parse_args()
     TREE = os.path.abspath(ARGS.body_tree)
     CODEX_BIN = ARGS.codex_bin
+    TIER = ARGS.service_tier
     if not os.path.isdir(os.path.join(TREE, "tests", "corpus")):
         sys.exit("本体の木に tests/corpus がありません: " + TREE)
     docs = docs_all() if ARGS.docs == "all" else ARGS.docs.split(",")
