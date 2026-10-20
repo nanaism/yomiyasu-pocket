@@ -1,6 +1,6 @@
 <p align="center"><img src="./assets/yomiyasu-pocket.png" alt="yomiyasu-pocket logo" width="600"></p>
 
-# yomiyasu-pocket
+# yomiyasu-pocket（よみやす ぽけっと）
 
 ## これは何？
 
