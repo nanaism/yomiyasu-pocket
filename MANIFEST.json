@@ -1,0 +1,221 @@
+{
+  "format": "yomiyasu-pocket-manifest",
+  "format_version": 1,
+  "release": "2.1.1-r1",
+  "body": {
+    "repository": "https://github.com/nanaism/yomiyasu",
+    "version": "2.1.1",
+    "tag": "v2.1.1",
+    "commit": "fbe02c93877d697cc53d9377b7a45dd8a1dd99b3"
+  },
+  "body_skill": {
+    "file": "skills/yomiyasu/SKILL.md",
+    "characters": 41445
+  },
+  "instruction": {
+    "file": "pocket.txt",
+    "characters": 333,
+    "sha256": "a2bd5910bc8e83ed266b6d0bcb639caa7a7d9ffe5a4d54b8f7971dcc5ac76b9c"
+  },
+  "sections": [
+    {
+      "id": "S01",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 最優先ルール: 意味の保持"
+      ],
+      "sha256": "0800c0509f2091bd6334c1d0f9262775975c36d4db5993dda4971c94704f0e34"
+    },
+    {
+      "id": "S02",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 情報の不増補（足さない）"
+      ],
+      "sha256": "068277e35d9aba246bbae82952004186a4623bb6e4dd4e9cf1d2551768f1edaa"
+    },
+    {
+      "id": "S03",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 情報が足りない場合の暫定文"
+      ],
+      "sha256": "cb26196f3bfedffdd877bf493fdcafb686b02ec926d75bf0a1cfd98aa391e40d"
+    },
+    {
+      "id": "S04",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 文書の立場と文末"
+      ],
+      "sha256": "d2fb3178181c7fa3b38ddf8ee70d260ccafba3cbf32cac4be953a346a7cfb25d"
+    },
+    {
+      "id": "S05",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 2. 実行手順",
+        "### Step 2: 文章の書き直し"
+      ],
+      "sha256": "65164213852ac3195dc2a63a223f722dbb893f0b8158c89d05f6b820d04f0275"
+    },
+    {
+      "id": "S06",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 擬人化の解消"
+      ],
+      "sha256": "0a7a6511091da1f1d44bd4b1dca85a4b15534e80d3d8e8ccbb6b2e9611528318"
+    },
+    {
+      "id": "S07",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 比喩動詞の具体化"
+      ],
+      "sha256": "66a238b41b4d7e796817dff940ad26096c992bb353121a8a490358fe7ca0442f"
+    },
+    {
+      "id": "S08",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### セルフラベリングと否定対比の整理"
+      ],
+      "sha256": "46c5c71d9b0495d2e1b34fc147cf51dc38c2f064fba90f05e716460e26373fea"
+    },
+    {
+      "id": "S09",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 段落と文の論理構造（つながり）"
+      ],
+      "sha256": "1a0894b31e82e94c8f183903268683f0ec623f60116b4a41067f8e6f0308499a"
+    },
+    {
+      "id": "S10",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 装飾記号の排除と太字の表示"
+      ],
+      "sha256": "d2073d0308bd924e4a3dcf01df44f5ea09b78c5ba3d2450f1352470e843608fa"
+    },
+    {
+      "id": "S11",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 文長と読点の調整"
+      ],
+      "sha256": "189dbb2078e0deea3524cb322bafe3a996150f968398fb8a187f584e0ad4220c"
+    },
+    {
+      "id": "S12",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### コピー調の抑制"
+      ],
+      "sha256": "c4a6223395deb516040cb2454febb10f9b99173f6385b5becb423031df96e3b5"
+    },
+    {
+      "id": "S13",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 3. 出力フォーマット"
+      ],
+      "sha256": "ce3964e1841429d960e0e377b7e0c852c96fec4db85cbe8c5ba9801e8ad448cc"
+    }
+  ],
+  "pieces": [
+    {
+      "id": "T1",
+      "kind": "rewritten",
+      "role": "meaning",
+      "sources": [
+        "S01"
+      ]
+    },
+    {
+      "id": "T2",
+      "kind": "rewritten",
+      "role": "output",
+      "sources": [
+        "S13",
+        "S03"
+      ]
+    },
+    {
+      "id": "T3",
+      "kind": "rewritten",
+      "role": "meaning",
+      "sources": [
+        "S01",
+        "S05"
+      ]
+    },
+    {
+      "id": "T4",
+      "kind": "rewritten",
+      "role": "meaning",
+      "sources": [
+        "S02"
+      ]
+    },
+    {
+      "id": "T5",
+      "kind": "rewritten",
+      "role": "meaning",
+      "sources": [
+        "S03"
+      ]
+    },
+    {
+      "id": "T6",
+      "kind": "rewritten",
+      "role": "meaning",
+      "sources": [
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "id": "T7",
+      "kind": "rewritten",
+      "role": "style",
+      "sources": [
+        "S07"
+      ]
+    },
+    {
+      "id": "T8",
+      "kind": "rewritten",
+      "role": "style",
+      "sources": [
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11"
+      ]
+    },
+    {
+      "id": "T9",
+      "kind": "rewritten",
+      "role": "restraint",
+      "sources": [
+        "S07",
+        "S12"
+      ]
+    }
+  ]
+}

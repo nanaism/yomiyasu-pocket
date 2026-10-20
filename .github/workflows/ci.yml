@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: generate and test (Python ${{ matrix.python-version }})
+    # Pinned rather than ubuntu-latest: Python 3.9 is past its end of life and may not be built for newer images.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.14"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Read the body tag from the extraction table
+        id: body
+        run: python -c "import json; print('tag=' + json.load(open('extract/table.json', encoding='utf-8'))['body']['tag'])" >> "$GITHUB_OUTPUT"
+      - name: Check out the body (nanaism/yomiyasu)
+        uses: actions/checkout@v5
+        with:
+          repository: nanaism/yomiyasu
+          ref: ${{ steps.body.outputs.tag }}
+          path: body
+          persist-credentials: false
+      - name: Generated files match the extraction table and the body
+        run: python tools/generate.py --body body --check
+      - name: Run the tests
+        env:
+          BODY_DIR: body
+        run: python -m unittest discover -s tests -v
