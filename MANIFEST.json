@@ -14,8 +14,8 @@
   },
   "instruction": {
     "file": "pocket.txt",
-    "characters": 333,
-    "sha256": "a2bd5910bc8e83ed266b6d0bcb639caa7a7d9ffe5a4d54b8f7971dcc5ac76b9c"
+    "characters": 383,
+    "sha256": "fc7609d84a439583629d9af497c0d39067e8ea3a34d2c8fcd6ce3b2e70a63b28"
   },
   "sections": [
     {
@@ -167,7 +167,8 @@
       "kind": "rewritten",
       "role": "meaning",
       "sources": [
-        "S02"
+        "S02",
+        "S09"
       ]
     },
     {
@@ -203,13 +204,21 @@
         "S06",
         "S07",
         "S08",
-        "S09",
         "S10",
         "S11"
       ]
     },
     {
       "id": "T9",
+      "kind": "rewritten",
+      "role": "meaning",
+      "sources": [
+        "S09",
+        "S01"
+      ]
+    },
+    {
+      "id": "T10",
       "kind": "rewritten",
       "role": "restraint",
       "sources": [

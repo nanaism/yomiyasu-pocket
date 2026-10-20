@@ -27,13 +27,17 @@ GENERATED = ("pocket.txt", "MANIFEST.json", "SOURCES.md", "README.md")
 # 部分は1文ずつなので、[^。]* で文の外にはみ出さない。決まりを足すときも、部分の文を書き直すときも、ここを直す。
 REQUIRED_RULES = [
     ("意味を変えない", "meaning", r"意味を変えずに[^。]*ください。$"),
+    ("文の働き（問いを含む）を保つ", "meaning", r"文の働き（[^）]*問い[^）]*）[^。]*変えません。$"),
     ("言い切りの強さを保つ", "meaning", r"言い切りの強さ[^。]*変えません。$"),
     ("数値を保つ", "meaning", r"数値[^。]*変えません。$"),
     ("条件を保つ", "meaning", r"条件[^。]*変えません。$"),
     ("否定を保つ", "meaning", r"否定[^。]*変えません。$"),
-    ("情報を足さない", "meaning", r"原文にない情報[^。]*足しません。$"),
+    ("情報を足さない", "meaning", r"原文にない情報[^。]*足さず[^。]*ません。$"),
+    ("文を削らない", "meaning", r"文も削りません。$"),
     ("分からない所を推測で埋めない", "meaning", r"推測で埋めず[^。]*残します。$"),
     ("文体と見出しや箇条書きの数と順を保つ", "meaning", r"文体[^。]*見出しや箇条書きの数と順[^。]*保ちます。$"),
+    ("かぎかっこの中の言葉を保つ", "meaning", r"かぎかっこの中の言葉[^。]*保ちます。$"),
+    ("つながりを変えない", "meaning", r"つながりを変える書き換え[^。]*しません。$"),
     ("本文だけを返す", "output", r"本文だけ[^。]*付けません。$"),
     ("AIらしい言い回しを直す", "style", r"AIらしい言い回し[^。]*直します。$"),
     ("自然な文と慣用句は直さない", "restraint", r"自然な文と慣用句[^。]*直しません。$"),
@@ -268,7 +272,7 @@ class CommittedFilesTest(unittest.TestCase):
         for p in self.table["pieces"]:
             self.assertIn(p.get("role"), G.ROLES, p["id"])
         self.assertEqual([p["id"] for p in self.table["pieces"] if p["role"] == "output"], ["T2"])
-        self.assertEqual([p["id"] for p in self.table["pieces"] if p["role"] == "restraint"], ["T9"])
+        self.assertEqual([p["id"] for p in self.table["pieces"] if p["role"] == "restraint"], ["T10"])
 
     def test_instruction_equals_pieces(self):
         pieces = self.table["pieces"]
@@ -320,7 +324,8 @@ class CommittedFilesTest(unittest.TestCase):
         readme = readme_without_instruction(read(os.path.join(REPO, "README.md")))
         for name, rx in README_FORBIDDEN:
             self.assertIsNone(rx.search(readme), "README に「%s」がある" % name)
-        self.assertNotIn("測った結果", readme, "測定の結果がないうちは「測った結果」の節を置かない")
+        self.assertIn("\n## 測った結果\n", readme)
+        self.assertIn("(./measurements/README.md)", readme)
 
     def test_readme_body_size_matches_manifest(self):
         readme = read(os.path.join(REPO, "README.md"))
@@ -332,6 +337,46 @@ class CommittedFilesTest(unittest.TestCase):
     def test_readme_shows_instruction(self):
         readme = read(os.path.join(REPO, "README.md"))
         self.assertIn("```text\n" + self.instruction + "```\n", readme)
+
+
+class MeasurementsTest(unittest.TestCase):
+    """measurements/ に置いた測定の結果の試験。本体がなくても動く。"""
+
+    FINAL = "P2"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
+    RESULT_KEYS = {"cond", "run", "doc", "status", "meaning_risk_count", "risks", "lint_before", "lint_after",
+                   "lint_after_rules", "changed_per_1000", "identical", "service_tier"}
+
+    def load(self, name):
+        return json.loads(read(os.path.join(REPO, "measurements", name)))
+
+    def test_final_variant_is_the_instruction(self):
+        variants = self.load("variants.json")
+        self.assertEqual(variants[self.FINAL]["text"] + "\n", read(os.path.join(REPO, "pocket.txt")))
+        for name, v in variants.items():
+            self.assertTrue(v.get("text") and v.get("note"), name)
+
+    def test_pass_line(self):
+        # 合格の線: 最終の候補の意味が変わる恐れが、3回の合計でも1回ずつでも本体を超えない
+        summary = self.load("summary.json")
+        body = [v for k, v in summary.items() if k.startswith("body/")]
+        final = [v for k, v in summary.items() if k.startswith("pocket_%s/" % self.FINAL)]
+        self.assertEqual(len(body), 3)
+        self.assertEqual(len(final), 3)
+        for v in body + final:
+            self.assertEqual(v["n"], 115)
+            self.assertEqual(v["ok"], 115)
+        self.assertLessEqual(sum(v["meaning_risk"] for v in final), sum(v["meaning_risk"] for v in body))
+        self.assertLessEqual(max(v["meaning_risk"] for v in final), min(v["meaning_risk"] for v in body))
+
+    def test_pocket_only_risks_are_read(self):
+        only = self.load("pocket_only.json")
+        self.assertTrue(only)
+        for x in only:
+            self.assertTrue(x.get("reading", "").strip(), x)
+
+    def test_results_hold_counts_not_texts(self):
+        for row in self.load("results.json"):
+            self.assertLessEqual(set(row), self.RESULT_KEYS)
 
 
 # --- 本体がなくても動く、作りものの本体での試験 ---
