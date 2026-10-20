@@ -18,7 +18,7 @@ README の生成する部分は、指示文と本体の SKILL.md の字数（len
   2 抽出表が指す見出しが本体にないか、同じ道筋の見出しが2つ以上あって節を決められない。
     ないものと重なったものを1つの一覧にまとめて出し、何も書かない
   3 節の中身のハッシュが抽出表と違う（見直しが必要な節を出し、何も書かない。--accept-changes なら書き直して続ける）
-  4 指示文が1段落でないか、400字を超える（何も書かない）
+  4 指示文が1段落でないか、500字を超える（何も書かない）
   5 抽出表の形（部分の role がない、知らない role を含む）、本体の版やコミット、README の印がおかしい（何も書かない。
     コミットの違いだけは --accept-changes で書き直して続ける）
 標準ライブラリだけ。Python 3.9 以上。
@@ -34,7 +34,7 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TABLE_PATH = os.path.join("extract", "table.json")
 VERSION_FILE = "skills/yomiyasu/SKILL.md"  # metadata.version を読むファイル
-MAX_CHARS = 400
+MAX_CHARS = 500
 TABLE_FORMAT = "yomiyasu-pocket-extract"
 TABLE_FORMAT_VERSION = 1
 MANIFEST_FORMAT = "yomiyasu-pocket-manifest"

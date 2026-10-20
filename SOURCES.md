@@ -9,15 +9,14 @@
 | 番号 | 文 | 種類 | 役割 | 本体の見出し |
 |---|---|---|---|---|
 | T1 | 次の文章を、意味を変えずに読みやすい日本語に書き直してください。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 最優先ルール: 意味の保持（S01） |
-| T2 | 返すのは書き直した本文だけにし、説明や前置きは付けません。 | 書き直し | 返し方（output） | skills/yomiyasu/SKILL.md > 3. 出力フォーマット（S13）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 情報が足りない場合の暫定文（S03） |
-| T3 | 主張、比重、文の働き（事実、意見、依頼、問い、予定）、言い切りの強さ（推量、可能、許可、義務）、数値、固有名詞、日付、条件、否定は変えません。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 最優先ルール: 意味の保持（S01）<br>skills/yomiyasu/SKILL.md > 2. 実行手順 > Step 2: 文章の書き直し（S05） |
-| T4 | 原文にない情報、理由、主語、例は足さず、文も削りません。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 情報の不増補（足さない）（S02）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 段落と文の論理構造（つながり）（S09） |
-| T5 | 分からない所は推測で埋めず、原文のまま残します。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 情報が足りない場合の暫定文（S03） |
-| T6 | 文体（です・ます、だ・である）、見出しや箇条書きの数と順、かぎかっこの中の言葉は保ちます。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 文書の立場と文末（S04）<br>skills/yomiyasu/SKILL.md > 2. 実行手順 > Step 2: 文章の書き直し（S05） |
-| T7 | AIらしい言い回しはふつうの言葉に直します。 | 書き直し | 直す型（style） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 比喩動詞の具体化（S07） |
-| T8 | 物や概念を人のように動かす比喩、「重要なのは」のような前置き、意味の増えない「AではなくB」、絵文字、ダッシュ、文末のコロン、間を作るだけの読点です。 | 書き直し | 直す型（style） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 擬人化の解消（S06）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 比喩動詞の具体化（S07）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > セルフラベリングと否定対比の整理（S08）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 装飾記号の排除と太字の表示（S10）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 文長と読点の調整（S11） |
-| T9 | 「仕様変更が」を「仕様が変わると」にするような、つながりを変える書き換えもしません。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 段落と文の論理構造（つながり）（S09）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 最優先ルール: 意味の保持（S01） |
-| T10 | 自然な文と慣用句は直しません。 | 書き直し | 直さないもの（restraint） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 比喩動詞の具体化（S07）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > コピー調の抑制（S12） |
+| T2 | 書き直した本文だけを返し、説明や前置きは付けないでください。 | 書き直し | 返し方（output） | skills/yomiyasu/SKILL.md > 3. 出力フォーマット（S13）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 情報が足りない場合の暫定文（S03） |
+| T3 | 主張、比重、文の働き（事実、意見、依頼、問い、予定）、言い切りの強さ（推量、可能、許可、義務）、数値、固有名詞、日付、条件、否定は変えないでください。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 最優先ルール: 意味の保持（S01）<br>skills/yomiyasu/SKILL.md > 2. 実行手順 > Step 2: 文章の書き直し（S05） |
+| T4 | 原文にない情報、理由、主語、例は足さず、文も削らないでください。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 情報の不増補（足さない）（S02）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 段落と文の論理構造（つながり）（S09） |
+| T5 | 分からない所は推測で埋めず、原文のまま残してください。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 情報が足りない場合の暫定文（S03） |
+| T6 | 文体（です・ます、だ・である）、見出しや箇条書きの数と順、かぎかっこの中の言葉も保ってください。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 文書の立場と文末（S04）<br>skills/yomiyasu/SKILL.md > 2. 実行手順 > Step 2: 文章の書き直し（S05） |
+| T7 | 物や概念を人のように動かす比喩、「重要なのは」のような前置き、意味の増えない「AではなくB」、絵文字、ダッシュ、文末のコロン、間を作るだけの読点など、AIらしい言い回しはふつうの言葉に直してください。 | 書き直し | 直す型（style） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 擬人化の解消（S06）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 比喩動詞の具体化（S07）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > セルフラベリングと否定対比の整理（S08）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 装飾記号の排除と太字の表示（S10）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 文長と読点の調整（S11） |
+| T8 | ただし、「仕様変更が」を「仕様が変わると」にするような、つながりを変える書き換えはしないでください。 | 書き直し | 意味を守る（meaning） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 段落と文の論理構造（つながり）（S09）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > 最優先ルール: 意味の保持（S01） |
+| T9 | 自然な文と慣用句も直さないでください。 | 書き直し | 直さないもの（restraint） | skills/yomiyasu/SKILL.md > 1. 基本原則 > 比喩動詞の具体化（S07）<br>skills/yomiyasu/SKILL.md > 1. 基本原則 > コピー調の抑制（S12） |
 
 ## 指した節
 

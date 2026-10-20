@@ -27,20 +27,20 @@ GENERATED = ("pocket.txt", "MANIFEST.json", "SOURCES.md", "README.md")
 # 部分は1文ずつなので、[^。]* で文の外にはみ出さない。決まりを足すときも、部分の文を書き直すときも、ここを直す。
 REQUIRED_RULES = [
     ("意味を変えない", "meaning", r"意味を変えずに[^。]*ください。$"),
-    ("文の働き（問いを含む）を保つ", "meaning", r"文の働き（[^）]*問い[^）]*）[^。]*変えません。$"),
-    ("言い切りの強さを保つ", "meaning", r"言い切りの強さ[^。]*変えません。$"),
-    ("数値を保つ", "meaning", r"数値[^。]*変えません。$"),
-    ("条件を保つ", "meaning", r"条件[^。]*変えません。$"),
-    ("否定を保つ", "meaning", r"否定[^。]*変えません。$"),
-    ("情報を足さない", "meaning", r"原文にない情報[^。]*足さず[^。]*ません。$"),
-    ("文を削らない", "meaning", r"文も削りません。$"),
-    ("分からない所を推測で埋めない", "meaning", r"推測で埋めず[^。]*残します。$"),
-    ("文体と見出しや箇条書きの数と順を保つ", "meaning", r"文体[^。]*見出しや箇条書きの数と順[^。]*保ちます。$"),
-    ("かぎかっこの中の言葉を保つ", "meaning", r"かぎかっこの中の言葉[^。]*保ちます。$"),
-    ("つながりを変えない", "meaning", r"つながりを変える書き換え[^。]*しません。$"),
-    ("本文だけを返す", "output", r"本文だけ[^。]*付けません。$"),
-    ("AIらしい言い回しを直す", "style", r"AIらしい言い回し[^。]*直します。$"),
-    ("自然な文と慣用句は直さない", "restraint", r"自然な文と慣用句[^。]*直しません。$"),
+    ("文の働き（問いを含む）を保つ", "meaning", r"文の働き（[^）]*問い[^）]*）[^。]*変えないでください。$"),
+    ("言い切りの強さを保つ", "meaning", r"言い切りの強さ[^。]*変えないでください。$"),
+    ("数値を保つ", "meaning", r"数値[^。]*変えないでください。$"),
+    ("条件を保つ", "meaning", r"条件[^。]*変えないでください。$"),
+    ("否定を保つ", "meaning", r"否定[^。]*変えないでください。$"),
+    ("情報を足さない", "meaning", r"原文にない情報[^。]*足さず[^。]*削らないでください。$"),
+    ("文を削らない", "meaning", r"文も削らないでください。$"),
+    ("分からない所を推測で埋めない", "meaning", r"推測で埋めず[^。]*残してください。$"),
+    ("文体と見出しや箇条書きの数と順を保つ", "meaning", r"文体[^。]*見出しや箇条書きの数と順[^。]*保ってください。$"),
+    ("かぎかっこの中の言葉を保つ", "meaning", r"かぎかっこの中の言葉[^。]*保ってください。$"),
+    ("つながりを変えない", "meaning", r"つながりを変える書き換え[^。]*しないでください。$"),
+    ("本文だけを返す", "output", r"本文だけを返し[^。]*付けないでください。$"),
+    ("AIらしい言い回しを直す", "style", r"AIらしい言い回し[^。]*直してください。$"),
+    ("自然な文と慣用句は直さない", "restraint", r"自然な文と慣用句[^。]*直さないでください。$"),
 ]
 
 # README に書かないもの。指示文の部分（生成する印のあいだ）は指示文そのものなので、除いてから探す
@@ -241,7 +241,8 @@ class CommittedFilesTest(unittest.TestCase):
         text = self.instruction[:-1]
         self.assertNotIn("\n", text)
         self.assertNotIn("\r", text)
-        self.assertLessEqual(len(text), 400)
+        self.assertLessEqual(len(text), G.MAX_CHARS)
+        self.assertEqual(G.MAX_CHARS, 500)
         self.assertGreater(len(text.strip()), 0)
 
     def piece_texts(self):
@@ -268,11 +269,31 @@ class CommittedFilesTest(unittest.TestCase):
                 self.assertTrue(any(r == role and re.search(pat, text) for _, r, pat in REQUIRED_RULES),
                                 "REQUIRED_RULES に合わない %s の部分: %s" % (role, text))
 
+    def test_every_piece_is_a_request(self):
+        # 指示文はAIへの依頼でそろえる。「付けません。」「変えません。」のような、書き手が自分のすることを述べた文に読める文末を混ぜない
+        for role, text in self.piece_texts():
+            self.assertTrue(text.endswith("ください。"), "依頼の形で終わっていない %s の部分: %s" % (role, text))
+            self.assertEqual(text.count("。"), 1, "1文でない部分: %s" % text)
+        for sentence in self.instruction[:-1].split("。")[:-1]:
+            self.assertTrue(sentence.endswith("ください"), "依頼の形で終わっていない文: %s。" % sentence)
+
+    def test_required_rules_reject_permission(self):
+        # 決まりの文を許す言い方に戻すと、どの REQUIRED_RULES にも合わなくなる
+        for role, text in self.piece_texts():
+            if role not in ("meaning", "output", "restraint"):
+                continue
+            for loose in (re.sub(r"[^、]*ください。$", "変えてもかまいません。", text),
+                          re.sub(r"ないでください。$", "てもかまいません。", text)):
+                if loose == text:
+                    continue
+                self.assertFalse(any(r == role and re.search(pat, loose) for _, r, pat in REQUIRED_RULES),
+                                 "許す言い方でも REQUIRED_RULES に合ってしまう: %s" % loose)
+
     def test_every_piece_has_a_role(self):
         for p in self.table["pieces"]:
             self.assertIn(p.get("role"), G.ROLES, p["id"])
         self.assertEqual([p["id"] for p in self.table["pieces"] if p["role"] == "output"], ["T2"])
-        self.assertEqual([p["id"] for p in self.table["pieces"] if p["role"] == "restraint"], ["T10"])
+        self.assertEqual([p["id"] for p in self.table["pieces"] if p["role"] == "restraint"], ["T9"])
 
     def test_instruction_equals_pieces(self):
         pieces = self.table["pieces"]
@@ -340,7 +361,8 @@ class CommittedFilesTest(unittest.TestCase):
 class MeasurementsTest(unittest.TestCase):
     """measurements/ に置いた測定の結果の試験。本体がなくても動く。"""
 
-    FINAL = "P2"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
+    FINAL = "Q1"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
+    MEASURED = "P2"  # 本体と3回ずつ比べた候補（文末を依頼の形にそろえる前の指示文）。合格の線はこの候補で見る
     RESULT_KEYS = {"cond", "run", "doc", "status", "meaning_risk_count", "risks", "lint_before", "lint_after",
                    "lint_after_rules", "changed_per_1000", "identical", "service_tier"}
 
@@ -354,10 +376,10 @@ class MeasurementsTest(unittest.TestCase):
             self.assertTrue(v.get("text") and v.get("note"), name)
 
     def test_pass_line(self):
-        # 合格の線: 最終の候補の意味が変わる恐れが、3回の合計でも1回ずつでも本体を超えない
+        # 合格の線: 本体と比べた候補（P2）の意味が変わる恐れが、3回の合計でも1回ずつでも本体を超えない
         summary = self.load("summary.json")
         body = [v for k, v in summary.items() if k.startswith("body/")]
-        final = [v for k, v in summary.items() if k.startswith("pocket_%s/" % self.FINAL)]
+        final = [v for k, v in summary.items() if k.startswith("pocket_%s/" % self.MEASURED)]
         self.assertEqual(len(body), 3)
         self.assertEqual(len(final), 3)
         for v in body + final:
@@ -571,11 +593,11 @@ class TinyBodyTest(unittest.TestCase):
         self.assertEqual(self.gen("--check")[0], 0)
 
     def test_too_long_instruction_stops(self):
-        self.set_table(tiny_table([{"id": "T1", "kind": "rewritten", "role": "meaning", "text": "あ" * 401,
+        self.set_table(tiny_table([{"id": "T1", "kind": "rewritten", "role": "meaning", "text": "あ" * 501,
                                     "sources": ["S01"]}]))
         code, out, err = self.gen("--accept-changes")
         self.assertEqual(code, 4)
-        self.assertIn("401", err)
+        self.assertIn("501", err)
         self.assertFalse(os.path.exists(os.path.join(self.repo, "pocket.txt")))
 
     def test_bad_table_stops(self):
