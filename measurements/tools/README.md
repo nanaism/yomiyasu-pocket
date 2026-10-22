@@ -7,7 +7,7 @@
 - 推敲させる道具: Codex CLI（`codex exec`）
 - モデル: gpt-6-astra
 - effort: high（`-c model_reasoning_effort="high"`）
-- service_tier: 既定は指定しない（Codex の既定の速さ）。`--service-tier` か環境変数 `POCKET_SERVICE_TIER` に `default` 以外の値を渡すと、`-c service_tier="<値>"` を付けます
+- service_tier: 既定では指定しません（Codex の既定の速さ）。`--service-tier` か環境変数 `POCKET_SERVICE_TIER` に `default` 以外の値を渡すと、`-c service_tier="<値>"` を付けます
 - 原稿: 本体 v2.1.1 の `tests/corpus/` の `raw_ai/`、`blacklist_ai/`、`edge_cases/`、`human/` の `.md`（115本）
 - 指示文の候補: `../variants.json`（`Q1` がいまの指示文と同じ文、`P2` は文末を依頼の形にそろえる前の指示文です）
 
@@ -69,6 +69,6 @@ python3 -B measurements/tools/score.py --body-tree body --table --conds body,poc
 python3 -B measurements/tools/aggregate.py --final P2 --runs-dir measurements/runs --out measurements
 ```
 
-- `--final` は、本体と比べる候補の名前です。本体と3回ずつ比べた `P2` を渡します（いまの指示文は `Q1` です）。`pocket_only.json` には、その候補で出た意味が変わる恐れのうち、同じ原稿で同じ種類の恐れが本体の回のどれにも出ていないものが入ります。
+- `--final` は本体と比べる候補の名前です。本体と3回ずつ比べた `P2` を渡します（いまの指示文は `Q1` です）。`pocket_only.json` には、その候補で出た意味が変わる恐れのうち、同じ原稿で同じ種類の恐れが本体の回のどれにも出ていないものが入ります。
 - `--runs-dir` を省くと `measurements/runs/`、`--out` を省くと `measurements/` を使います。
 - `--out` にすでに `pocket_only.json` があれば、同じ組（回、原稿、種類、行、元と後の文）の読んだ記録（`reading`）を引き継ぎます。新しく出た組の `reading` は空なので、1件ずつ読んで書きます。
