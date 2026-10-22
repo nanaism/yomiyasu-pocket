@@ -20,7 +20,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GEN = os.path.join(REPO, "tools", "generate.py")
 BODY = os.path.abspath(os.environ.get("BODY_DIR") or os.path.join(REPO, "body"))
 SKILL_REL = os.path.join("skills", "yomiyasu", "SKILL.md")
-GENERATED = ("pocket.txt", "MANIFEST.json", "SOURCES.md", "README.md")
+GENERATED = ("yomiyasu-pocket.txt", "MANIFEST.json", "SOURCES.md", "README.md")
 
 # 指示文に入っていなければならない決まりの一覧（決まりの名前、守る部分の role、その部分の文に合う正規表現）。
 # 正規表現は文末まで含めて、打ち消しや保つ言い方の文末が変わったら落ちるようにする。
@@ -234,7 +234,7 @@ class CommittedFilesTest(unittest.TestCase):
 
     def setUp(self):
         self.table = table()
-        self.instruction = read(os.path.join(REPO, "pocket.txt"))
+        self.instruction = read(os.path.join(REPO, "yomiyasu-pocket.txt"))
 
     def test_instruction_is_short_single_paragraph(self):
         self.assertTrue(self.instruction.endswith("\n"))
@@ -371,7 +371,7 @@ class MeasurementsTest(unittest.TestCase):
 
     def test_final_variant_is_the_instruction(self):
         variants = self.load("variants.json")
-        self.assertEqual(variants[self.FINAL]["text"] + "\n", read(os.path.join(REPO, "pocket.txt")))
+        self.assertEqual(variants[self.FINAL]["text"] + "\n", read(os.path.join(REPO, "yomiyasu-pocket.txt")))
         for name, v in variants.items():
             self.assertTrue(v.get("text") and v.get("note"), name)
 
@@ -530,7 +530,7 @@ class TinyBodyTest(unittest.TestCase):
         self.assertEqual(code, 0, err)
         code, out, err = self.gen("--check")
         self.assertEqual(code, 0, err)
-        self.assertEqual(read(os.path.join(self.repo, "pocket.txt")), "意味を変えずに直します。足しません。\n")
+        self.assertEqual(read(os.path.join(self.repo, "yomiyasu-pocket.txt")), "意味を変えずに直します。足しません。\n")
         readme = read(os.path.join(self.repo, "README.md"))
         self.assertNotIn("pocket:version", readme)
         self.assertIn("版 9.9.10", read(os.path.join(self.repo, "SOURCES.md")))
@@ -543,16 +543,16 @@ class TinyBodyTest(unittest.TestCase):
         self.assertEqual(manifest["body_skill"]["characters"], len(TINY_SKILL))
         self.assertEqual([p["role"] for p in manifest["pieces"]], ["meaning", "meaning"])
         # 手で書き換えると --check が落ちる
-        write(os.path.join(self.repo, "pocket.txt"), "違う\n")
+        write(os.path.join(self.repo, "yomiyasu-pocket.txt"), "違う\n")
         code, out, err = self.gen("--check")
         self.assertEqual(code, 1)
-        self.assertIn("pocket.txt", err)
+        self.assertIn("yomiyasu-pocket.txt", err)
         # 見出しを消すと止まり、何も書かない
         write(os.path.join(self.body, SKILL_REL), TINY_SKILL.replace("### 足さない\n", ""))
         code, out, err = self.gen()
         self.assertEqual(code, 2)
         self.assertIn("### 足さない", err)
-        self.assertEqual(read(os.path.join(self.repo, "pocket.txt")), "違う\n")
+        self.assertEqual(read(os.path.join(self.repo, "yomiyasu-pocket.txt")), "違う\n")
 
     def test_version_mismatch_stops(self):
         write(os.path.join(self.body, SKILL_REL), TINY_SKILL.replace('"9.9.9"', '"9.9.10"'))
@@ -566,7 +566,7 @@ class TinyBodyTest(unittest.TestCase):
             {"id": "T2", "kind": "rewritten", "role": "output", "text": "以上です。", "sources": ["S01"]},
         ]))
         self.assertEqual(self.gen("--accept-changes")[0], 0)
-        self.assertEqual(read(os.path.join(self.repo, "pocket.txt")), "足さない。以上です。\n")
+        self.assertEqual(read(os.path.join(self.repo, "yomiyasu-pocket.txt")), "足さない。以上です。\n")
         self.assertIn("| T1 | 足さない。 | そのまま | 意味を守る（meaning） |", read(os.path.join(self.repo, "SOURCES.md")))
         # 節の中身が複数の段落だと、1段落の決まりで止まる
         self.set_table(tiny_table([{"id": "T1", "kind": "verbatim", "role": "meaning", "section": "S01"}]))
@@ -598,7 +598,7 @@ class TinyBodyTest(unittest.TestCase):
         code, out, err = self.gen("--accept-changes")
         self.assertEqual(code, 4)
         self.assertIn("501", err)
-        self.assertFalse(os.path.exists(os.path.join(self.repo, "pocket.txt")))
+        self.assertFalse(os.path.exists(os.path.join(self.repo, "yomiyasu-pocket.txt")))
 
     def test_bad_table_stops(self):
         t = tiny_table()
@@ -611,7 +611,7 @@ class TinyBodyTest(unittest.TestCase):
         self.assertIn("S99", err)
 
     def assert_nothing_written(self):
-        for name in ("pocket.txt", "MANIFEST.json", "SOURCES.md"):
+        for name in ("yomiyasu-pocket.txt", "MANIFEST.json", "SOURCES.md"):
             self.assertFalse(os.path.exists(os.path.join(self.repo, name)), name)
         self.assertEqual(read(os.path.join(self.repo, "README.md")), self.readme_before)
         self.assertEqual(json.loads(read(os.path.join(self.repo, "extract", "table.json"))), self.table_before)

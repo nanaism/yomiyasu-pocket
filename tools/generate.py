@@ -8,7 +8,7 @@
   python3 tools/generate.py --body <本体> --accept-changes   （節のハッシュと本体のコミットを抽出表に書き直す）
   python3 tools/generate.py --body <本体> --out <フォルダ>    （生成物を別のフォルダに書く。試験用）
 
-作るもの: pocket.txt、MANIFEST.json、SOURCES.md、README.md の生成する部分（印のコメントのあいだ）。
+作るもの: yomiyasu-pocket.txt、MANIFEST.json、SOURCES.md、README.md の生成する部分（印のコメントのあいだ）。
 README の生成する部分は、指示文と本体の SKILL.md の字数（len で数え、41,445字の形で書く）。生成元の本体の版とコミットは MANIFEST.json と SOURCES.md に書く。
 時刻は入れないので、同じ抽出表と同じ本体からは同じバイト列ができる。
 
@@ -309,7 +309,7 @@ def build_manifest(table, instruction, skill_chars):
         "body": {k: body[k] for k in ("repository", "version", "tag", "commit")},
         "body_skill": {"file": VERSION_FILE, "characters": skill_chars},
         "instruction": {
-            "file": "pocket.txt",
+            "file": "yomiyasu-pocket.txt",
             "characters": len(instruction),
             "sha256": sha256_text(instruction),
         },
@@ -432,7 +432,7 @@ def generate(repo, body, accept=False, log=None):
         raise GenError(5, "README.md を読めません: %s (%s)" % (readme_path, e))
     readme = build_readme(readme_text, table, instruction, skill_chars)
     files = {
-        "pocket.txt": instruction + "\n",
+        "yomiyasu-pocket.txt": instruction + "\n",
         "MANIFEST.json": dump_json(build_manifest(table, instruction, skill_chars)),
         "SOURCES.md": build_sources(table, texts),
         "README.md": readme,

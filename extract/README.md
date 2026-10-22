@@ -1,6 +1,6 @@
 # 抽出表の形
 
-`table.json` は、本体（nanaism/yomiyasu）のどの節から指示文を作ったかを書いた表です。`tools/generate.py` がこの表と本体のチェックアウトから、`pocket.txt`、`MANIFEST.json`、`SOURCES.md` と README の生成する部分（指示文と本体の SKILL.md の字数）を作ります。生成元の本体の版とコミットは MANIFEST.json と SOURCES.md に書きます。本体の SKILL.md の字数は、先頭の YAML を含むファイル全体を UTF-8 で読んだ字数（Python の `len`）で、`MANIFEST.json` の `body_skill.characters` にも書きます。
+`table.json` は、本体（nanaism/yomiyasu）のどの節から指示文を作ったかを書いた表です。`tools/generate.py` がこの表と本体のチェックアウトから、`yomiyasu-pocket.txt`、`MANIFEST.json`、`SOURCES.md` と README の生成する部分（指示文と本体の SKILL.md の字数）を作ります。生成元の本体の版とコミットは MANIFEST.json と SOURCES.md に書きます。本体の SKILL.md の字数は、先頭の YAML を含むファイル全体を UTF-8 で読んだ字数（Python の `len`）で、`MANIFEST.json` の `body_skill.characters` にも書きます。
 
 ## 上の段
 
