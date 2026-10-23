@@ -4,18 +4,18 @@
   "release": "1.0.0",
   "body": {
     "repository": "https://github.com/nanaism/yomiyasu",
-    "version": "2.1.1",
-    "tag": "v2.1.1",
-    "commit": "fbe02c93877d697cc53d9377b7a45dd8a1dd99b3"
+    "version": "2.2.2",
+    "tag": "v2.2.2",
+    "commit": "488dd37c0baa67ec65bf155aced9fa1a01d261e2"
   },
   "body_skill": {
     "file": "skills/yomiyasu/SKILL.md",
-    "characters": 41445
+    "characters": 42982
   },
   "instruction": {
     "file": "yomiyasu-pocket.txt",
-    "characters": 413,
-    "sha256": "de1b94a8597c15c8d360d60b260bd28bc9c18e7a25556f4a1296798cc462639d"
+    "characters": 497,
+    "sha256": "617116cdf5c595c789d4d7eb23af6ed1aa32a5c1728b0f8cd945986e2cb98c35"
   },
   "sections": [
     {
@@ -61,7 +61,7 @@
         "## 2. 実行手順",
         "### Step 2: 文章の書き直し"
       ],
-      "sha256": "65164213852ac3195dc2a63a223f722dbb893f0b8158c89d05f6b820d04f0275"
+      "sha256": "be2fb98d62598fbf1c427daca8f906ac481591c47f280fb4880798dce303a709"
     },
     {
       "id": "S06",
@@ -124,7 +124,7 @@
         "## 1. 基本原則",
         "### コピー調の抑制"
       ],
-      "sha256": "c4a6223395deb516040cb2454febb10f9b99173f6385b5becb423031df96e3b5"
+      "sha256": "1f18c57dc3cdf9ede4f08b9384741813b9b9a001a64406e14c988bc9356372a3"
     },
     {
       "id": "S13",
@@ -133,6 +133,31 @@
         "## 3. 出力フォーマット"
       ],
       "sha256": "ce3964e1841429d960e0e377b7e0c852c96fec4db85cbe8c5ba9801e8ad448cc"
+    },
+    {
+      "id": "S14",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 案内用の見出し"
+      ],
+      "sha256": "3eac75ee670c976cda05206eed702d42417abb135e034fef30f18c804bf586aa"
+    },
+    {
+      "id": "S15",
+      "file": "skills/yomiyasu/references/slop-catalog.md",
+      "heading": [
+        "## 6. 不要な前置きと定型の結び"
+      ],
+      "sha256": "7309fa3c13efbaa92c4823cf3102a7d2c4f439aff7bb78c371c5ef014333d922"
+    },
+    {
+      "id": "S16",
+      "file": "skills/yomiyasu/references/calques.md",
+      "heading": [
+        "## 1. 3つの型"
+      ],
+      "sha256": "b7c31c85c2c4885b301c3ae8d876b4b989a3ede58dcab8c9e3f0dddf2c4b99cb"
     }
   ],
   "pieces": [
@@ -195,9 +220,20 @@
       "sources": [
         "S06",
         "S07",
+        "S05",
+        "S16",
+        "S14",
         "S08",
         "S10",
         "S11"
+      ]
+    },
+    {
+      "id": "T10",
+      "kind": "rewritten",
+      "role": "style",
+      "sources": [
+        "S15"
       ]
     },
     {

@@ -1,0 +1,640 @@
+{
+ "about": "本体 v2.2.0 を作るときに作られた類例10本での読み比べ。類例の文書はこのリポジトリに入れていない。各候補を1回ずつ流し（Codex CLI 0.163.0、gpt-6-astra、effort high、既定の速さ）、3つの候補の書き直しを名前を伏せて並べ、類例に付いた印（直すべき文 fix と残すべき文 keep）ごとに good、miss、harm を付けた。読み比べたのは Claude（claude-opus-5-5）で、別の Claude が miss と harm の判定をすべて読み直した。",
+ "verdicts": {
+  "good": "fix では、誰が何をするかが読める文に、原文と前後の文にある名前と動作だけで書き直した（原文に書いていない中身を尋ねるべき文は、原文のまま残しても good）。keep では、その言い方を残した",
+  "miss": "fix で、直さなかったか、直しになっていない言い換えをした",
+  "harm": "意味を変えた、原文にない名前や動作を足した、意味の広い語に替えただけ、または残すべき言い方を書き換えた"
+ },
+ "documents": [
+  {
+   "group": "g1-calque",
+   "doc": "order-api-article",
+   "targets": 19
+  },
+  {
+   "group": "g1-calque",
+   "doc": "mail-delay-incident",
+   "targets": 14
+  },
+  {
+   "group": "g1-calque",
+   "doc": "office-notice",
+   "targets": 18
+  },
+  {
+   "group": "g1-calque",
+   "doc": "monthly-sales-manual",
+   "targets": 13
+  },
+  {
+   "group": "g2-label-hedge",
+   "doc": "essay-balcony",
+   "targets": 5
+  },
+  {
+   "group": "g2-label-hedge",
+   "doc": "manual-restore",
+   "targets": 9
+  },
+  {
+   "group": "g2-label-hedge",
+   "doc": "notice-rooms",
+   "targets": 11
+  },
+  {
+   "group": "g2-label-hedge",
+   "doc": "promo-desklight",
+   "targets": 11
+  },
+  {
+   "group": "g2-label-hedge",
+   "doc": "proposal-portal",
+   "targets": 16
+  },
+  {
+   "group": "g2-label-hedge",
+   "doc": "quarterly-inquiries",
+   "targets": 13
+  }
+ ],
+ "comparisons": [
+  {
+   "candidates": [
+    "C0",
+    "C1",
+    "C2"
+   ],
+   "total": {
+    "C0": {
+     "good": 86,
+     "miss": 37,
+     "harm": 6
+    },
+    "C1": {
+     "good": 97,
+     "miss": 25,
+     "harm": 7
+    },
+    "C2": {
+     "good": 97,
+     "miss": 26,
+     "harm": 6
+    }
+   },
+   "by_rule": {
+    "C0": {
+     "calque/fix": {
+      "good": 28,
+      "miss": 11,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 3,
+      "miss": 5,
+      "harm": 0
+     },
+     "katakana_term/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 3
+     },
+     "metaphor_label/fix": {
+      "good": 2,
+      "miss": 8,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 16,
+      "miss": 0,
+      "harm": 1
+     },
+     "say_hedge/fix": {
+      "good": 0,
+      "miss": 7,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 5,
+      "miss": 0,
+      "harm": 0
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    },
+    "C1": {
+     "calque/fix": {
+      "good": 30,
+      "miss": 9,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 1,
+      "miss": 6,
+      "harm": 1
+     },
+     "katakana_term/keep": {
+      "good": 6,
+      "miss": 0,
+      "harm": 0
+     },
+     "metaphor_label/fix": {
+      "good": 7,
+      "miss": 3,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 15,
+      "miss": 0,
+      "harm": 2
+     },
+     "say_hedge/fix": {
+      "good": 7,
+      "miss": 0,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 2
+     },
+     "thin_evaluation/fix": {
+      "good": 2,
+      "miss": 7,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    },
+    "C2": {
+     "calque/fix": {
+      "good": 30,
+      "miss": 8,
+      "harm": 2
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 4,
+      "miss": 4,
+      "harm": 0
+     },
+     "katakana_term/keep": {
+      "good": 6,
+      "miss": 0,
+      "harm": 0
+     },
+     "metaphor_label/fix": {
+      "good": 2,
+      "miss": 8,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 16,
+      "miss": 0,
+      "harm": 1
+     },
+     "say_hedge/fix": {
+      "good": 7,
+      "miss": 0,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 2
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    }
+   },
+   "verdicts_changed_on_recheck": 0
+  },
+  {
+   "candidates": [
+    "C0",
+    "C1",
+    "C4"
+   ],
+   "total": {
+    "C0": {
+     "good": 85,
+     "miss": 38,
+     "harm": 6
+    },
+    "C1": {
+     "good": 96,
+     "miss": 26,
+     "harm": 7
+    },
+    "C4": {
+     "good": 97,
+     "miss": 27,
+     "harm": 5
+    }
+   },
+   "by_rule": {
+    "C0": {
+     "calque/fix": {
+      "good": 27,
+      "miss": 12,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 3,
+      "miss": 5,
+      "harm": 0
+     },
+     "katakana_term/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 3
+     },
+     "metaphor_label/fix": {
+      "good": 2,
+      "miss": 8,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 16,
+      "miss": 0,
+      "harm": 1
+     },
+     "say_hedge/fix": {
+      "good": 0,
+      "miss": 7,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 5,
+      "miss": 0,
+      "harm": 0
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    },
+    "C1": {
+     "calque/fix": {
+      "good": 28,
+      "miss": 11,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 1,
+      "miss": 6,
+      "harm": 1
+     },
+     "katakana_term/keep": {
+      "good": 6,
+      "miss": 0,
+      "harm": 0
+     },
+     "metaphor_label/fix": {
+      "good": 7,
+      "miss": 3,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 15,
+      "miss": 0,
+      "harm": 2
+     },
+     "say_hedge/fix": {
+      "good": 7,
+      "miss": 0,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 2
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    },
+    "C4": {
+     "calque/fix": {
+      "good": 27,
+      "miss": 12,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 1,
+      "miss": 6,
+      "harm": 1
+     },
+     "katakana_term/keep": {
+      "good": 6,
+      "miss": 0,
+      "harm": 0
+     },
+     "metaphor_label/fix": {
+      "good": 7,
+      "miss": 3,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 15,
+      "miss": 0,
+      "harm": 2
+     },
+     "say_hedge/fix": {
+      "good": 7,
+      "miss": 0,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 5,
+      "miss": 0,
+      "harm": 0
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    }
+   },
+   "verdicts_changed_on_recheck": 0
+  },
+  {
+   "candidates": [
+    "C0",
+    "C4",
+    "C5"
+   ],
+   "total": {
+    "C0": {
+     "good": 86,
+     "miss": 37,
+     "harm": 6
+    },
+    "C4": {
+     "good": 99,
+     "miss": 25,
+     "harm": 5
+    },
+    "C5": {
+     "good": 96,
+     "miss": 25,
+     "harm": 8
+    }
+   },
+   "by_rule": {
+    "C0": {
+     "calque/fix": {
+      "good": 28,
+      "miss": 11,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 3,
+      "miss": 5,
+      "harm": 0
+     },
+     "katakana_term/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 3
+     },
+     "metaphor_label/fix": {
+      "good": 2,
+      "miss": 8,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 16,
+      "miss": 0,
+      "harm": 1
+     },
+     "say_hedge/fix": {
+      "good": 0,
+      "miss": 7,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 5,
+      "miss": 0,
+      "harm": 0
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    },
+    "C4": {
+     "calque/fix": {
+      "good": 29,
+      "miss": 10,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 1,
+      "miss": 6,
+      "harm": 1
+     },
+     "katakana_term/keep": {
+      "good": 6,
+      "miss": 0,
+      "harm": 0
+     },
+     "metaphor_label/fix": {
+      "good": 7,
+      "miss": 3,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 15,
+      "miss": 0,
+      "harm": 2
+     },
+     "say_hedge/fix": {
+      "good": 7,
+      "miss": 0,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 5,
+      "miss": 0,
+      "harm": 0
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    },
+    "C5": {
+     "calque/fix": {
+      "good": 29,
+      "miss": 10,
+      "harm": 1
+     },
+     "calque/keep": {
+      "good": 23,
+      "miss": 0,
+      "harm": 1
+     },
+     "katakana_term/fix": {
+      "good": 1,
+      "miss": 6,
+      "harm": 1
+     },
+     "katakana_term/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 3
+     },
+     "metaphor_label/fix": {
+      "good": 7,
+      "miss": 3,
+      "harm": 0
+     },
+     "metaphor_label/keep": {
+      "good": 15,
+      "miss": 0,
+      "harm": 2
+     },
+     "say_hedge/fix": {
+      "good": 7,
+      "miss": 0,
+      "harm": 0
+     },
+     "say_hedge/keep": {
+      "good": 5,
+      "miss": 0,
+      "harm": 0
+     },
+     "thin_evaluation/fix": {
+      "good": 3,
+      "miss": 6,
+      "harm": 0
+     },
+     "thin_evaluation/keep": {
+      "good": 3,
+      "miss": 0,
+      "harm": 0
+     }
+    }
+   },
+   "verdicts_changed_on_recheck": 0
+  }
+ ],
+ "final_harms": {
+  "candidate": "C5",
+  "items": [
+   {
+    "target": "g1 calque fix-36",
+    "what": "「利用者にとっての針をほとんど動かしません」を「利用者にとってはほとんど改善になりません」にし、「改善」の向きを足した"
+   },
+   {
+    "target": "g1 calque keep-23",
+    "what": "定着した「集計のクエリを流します」を「実行します」にした"
+   },
+   {
+    "target": "g2 metaphor_label keep-14",
+    "what": "読み物の見出し「来客」を「虫」にした"
+   },
+   {
+    "target": "g2 metaphor_label keep-04",
+    "what": "宣伝文の見出し「夜ふかし係」を「照らす範囲と明るさ」にした"
+   },
+   {
+    "target": "g2 katakana_term fix-07",
+    "what": "「コミットメント」を「積極的な関わり」にし、読み手が何をするかは書かないまま言い換えた"
+   },
+   {
+    "target": "g2 katakana_term keep-03、keep-04、keep-05",
+    "what": "定着した「マイルストーン」を3か所とも「節目」にした"
+   }
+  ]
+ }
+}

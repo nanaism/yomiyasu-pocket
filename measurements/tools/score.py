@@ -1,7 +1,7 @@
-"""run.py の結果を、本体 v2.1.1 の diff と lint で数える。
+"""run.py の結果を、本体 v2.2.2 の diff と lint で数える。
 
 使い方:
-  python3 -B score.py --body-tree <本体 v2.1.1> [--root ../runs] [--conds body,pocket_P0] [--jobs 8]
+  python3 -B score.py --body-tree <本体 v2.2.2> [--root ../runs] [--conds body,pocket_P0] [--jobs 8]
   python3 -B score.py --table [--conds body,pocket_P0,...]   （数えた結果を表にする）
 
 - 1組ごとに before.md と after.md を一時のフォルダに写し、本体の CLI を動かす（終了コードと JSON をそのまま使う）。
@@ -11,7 +11,7 @@
   - 書き換えた量: 原文と後の文の文字の差（difflib の opcodes の equal 以外で、元と後の長いほうの字数を足す）を、
     原文の空白を除いた字数1,000字あたりにした値。
 - 結果は各組の score.json。--table は条件ごと、群ごとの合計と平均を出し、table.json と table.md を書く。
-標準ライブラリだけ。本体の木（タグ v2.1.1）は --body-tree（なければ環境変数 BODY_DIR、それもなければリポジトリの body/）。
+標準ライブラリだけ。本体の木（タグ v2.2.2）は --body-tree（なければ環境変数 BODY_DIR、それもなければリポジトリの body/）。
 """
 import argparse
 import concurrent.futures as cf
@@ -166,7 +166,7 @@ def main():
     global TREE
     ap = argparse.ArgumentParser()
     ap.add_argument("--body-tree", default=os.environ.get("BODY_DIR") or os.path.join(REPO, "body"),
-                    help="本体 v2.1.1 の木（既定は環境変数 BODY_DIR か、リポジトリの body/）")
+                    help="本体 v2.2.2 の木（既定は環境変数 BODY_DIR か、リポジトリの body/）")
     ap.add_argument("--root", default=os.path.join(DEV, "runs"))
     ap.add_argument("--conds", default="")
     ap.add_argument("--jobs", type=int, default=8)

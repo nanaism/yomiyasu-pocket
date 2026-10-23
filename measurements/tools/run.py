@@ -1,14 +1,14 @@
-"""本体（v2.1.1 のスキル）と pocket の指示文で、同じ原稿を Codex CLI に推敲させる。
+"""本体（v2.2.2 のスキル）と pocket の指示文で、同じ原稿を Codex CLI に推敲させる。
 
 使い方:
-  python3 -B run.py --body-tree <本体 v2.1.1> --codex-home <測定用の CODEX_HOME> --cond body --runs 1,2 [--docs raw_ai/01_tech_arch_sonnet_casual,...] [--jobs 6]
+  python3 -B run.py --body-tree <本体 v2.2.2> --codex-home <測定用の CODEX_HOME> --cond body --runs 1,2 [--docs raw_ai/01_tech_arch_sonnet_casual,...] [--jobs 6]
   python3 -B run.py --body-tree <本体> --codex-home <CODEX_HOME> --cond pocket:P0 --runs 1 [--jobs 8]
   python3 -B run.py --plan --cond pocket:P0 --runs 1     （組を数えるだけ）
 
 - 本体の木は --body-tree（なければ環境変数 BODY_DIR、それもなければリポジトリの body/）。
 - CODEX_HOME は --codex-home（なければ環境変数 CODEX_HOME）。ふだんの設定と分けた、測定用のものを渡す。
-- 原稿は本体 v2.1.1 の木の tests/corpus/{raw_ai,blacklist_ai,edge_cases,human}/*.md（115本）。鍵は「群/名前」。
-- 条件 body: 作業場所の .agents/skills/yomiyasu に本体 v2.1.1 の skills/yomiyasu を写し、draft.md に原稿を置き、
+- 原稿は本体 v2.2.2 の木の tests/corpus/{raw_ai,blacklist_ai,edge_cases,human}/*.md（115本）。鍵は「群/名前」。
+- 条件 body: 作業場所の .agents/skills/yomiyasu に本体 v2.2.2 の skills/yomiyasu を写し、draft.md に原稿を置き、
   「$yomiyasu:yomiyasu で draft.md を推敲し、最終稿を out.md に保存してください。」と頼む。砂場は workspace-write。
   後の文は out.md（なければ no_out）。
 - 条件 pocket:<名前>: variants.json（既定は measurements/variants.json）の指示文と原稿を1つの依頼にして渡す（指示文、空行、原稿）。スキルもファイルも置かない。
@@ -212,7 +212,7 @@ def main():
     global ARGS, TREE, CODEX_HOME, CODEX_BIN, TIER
     ap = argparse.ArgumentParser()
     ap.add_argument("--body-tree", default=os.environ.get("BODY_DIR") or os.path.join(REPO, "body"),
-                    help="本体 v2.1.1 の木（既定は環境変数 BODY_DIR か、リポジトリの body/）")
+                    help="本体 v2.2.2 の木（既定は環境変数 BODY_DIR か、リポジトリの body/）")
     ap.add_argument("--codex-home", default=os.environ.get("CODEX_HOME", ""),
                     help="測定用の CODEX_HOME（既定は環境変数 CODEX_HOME）")
     ap.add_argument("--codex-bin", default="codex", help="Codex CLI のコマンド")
