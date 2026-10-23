@@ -61,7 +61,7 @@ python3 -B measurements/tools/score.py --body-tree body --table --conds body,poc
 
 `--body-tree` を省くと、環境変数 `BODY_DIR`、それもなければリポジトリの `body/` を使います。`--codex-home` を省くと、環境変数 `CODEX_HOME` を使います。
 
-## まとめ
+## 結果をまとめる
 
 `aggregate.py` は、`run.py` と `score.py` が `measurements/runs/` に書いた結果から、リポジトリに入れる `results.json`、`summary.json`、`pocket_only.json` を作ります。原稿と書き直した文の全文は入れません。
 

@@ -1,8 +1,8 @@
 """run.py の結果を、本体 v2.2.2 の diff と lint で数える。
 
 使い方:
-  python3 -B score.py --body-tree <本体 v2.2.2> [--root ../runs] [--conds body,pocket_P0] [--jobs 8]
-  python3 -B score.py --table [--conds body,pocket_P0,...]   （数えた結果を表にする）
+  python3 -B score.py --body-tree <本体 v2.2.2> [--root ../runs] [--conds body,pocket_C5] [--jobs 8]
+  python3 -B score.py --table [--conds body,pocket_C5,...]   （数えた結果を表にする）
 
 - 1組ごとに before.md と after.md を一時のフォルダに写し、本体の CLI を動かす（終了コードと JSON をそのまま使う）。
   - 意味が変わる恐れ: yomiyasu_diff.py before.md after.md --fail-on meaning-risk --json の fail_on_meaning_risk_count と

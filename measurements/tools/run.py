@@ -2,8 +2,8 @@
 
 使い方:
   python3 -B run.py --body-tree <本体 v2.2.2> --codex-home <測定用の CODEX_HOME> --cond body --runs 1,2 [--docs raw_ai/01_tech_arch_sonnet_casual,...] [--jobs 6]
-  python3 -B run.py --body-tree <本体> --codex-home <CODEX_HOME> --cond pocket:P0 --runs 1 [--jobs 8]
-  python3 -B run.py --plan --cond pocket:P0 --runs 1     （組を数えるだけ）
+  python3 -B run.py --body-tree <本体> --codex-home <CODEX_HOME> --cond pocket:C5 --runs 1 [--jobs 8]
+  python3 -B run.py --plan --cond pocket:C5 --runs 1     （組を数えるだけ）
 
 - 本体の木は --body-tree（なければ環境変数 BODY_DIR、それもなければリポジトリの body/）。
 - CODEX_HOME は --codex-home（なければ環境変数 CODEX_HOME）。ふだんの設定と分けた、測定用のものを渡す。

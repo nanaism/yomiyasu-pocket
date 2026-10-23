@@ -1,6 +1,6 @@
 """score.py の結果をまとめ、リポジトリに入れる測定の結果を作る。
 
-使い方: python3 -B measurements/tools/aggregate.py --final P2 [--runs-dir measurements/runs] [--out measurements]
+使い方: python3 -B measurements/tools/aggregate.py --final C5 [--runs-dir measurements/runs] [--out measurements]
 - 入力は run.py と score.py が書いた --runs-dir（既定は measurements/runs）の <条件>/r<回>/<群>/<名前>/ の
   score.json と result.json。
 - results.json: 条件・回・原稿ごとの数（意味が変わる恐れの件数と種類、元と後の文、lint の候補の数、書き換えた量、原文のままか）。
@@ -55,7 +55,7 @@ def lint_total(c):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--final", required=True, help="最終の pocket の条件の名前（P2 など）")
+    ap.add_argument("--final", required=True, help="最終の pocket の条件の名前（C5 など）")
     ap.add_argument("--runs-dir", default=os.path.join(DEV, "runs"), help="run.py と score.py の結果のフォルダ")
     ap.add_argument("--out", default=DEV, help="results.json、summary.json、pocket_only.json を書くフォルダ")
     a = ap.parse_args()
