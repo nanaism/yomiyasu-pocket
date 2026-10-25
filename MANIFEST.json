@@ -1,21 +1,21 @@
 {
   "format": "yomiyasu-pocket-manifest",
   "format_version": 1,
-  "release": "1.0.0",
+  "release": "1.1.0",
   "body": {
     "repository": "https://github.com/nanaism/yomiyasu",
-    "version": "2.2.2",
-    "tag": "v2.2.2",
-    "commit": "488dd37c0baa67ec65bf155aced9fa1a01d261e2"
+    "version": "2.4.0",
+    "tag": "v2.4.0",
+    "commit": "ae258d7a57b335673e30b88a018ae08d4f72c449"
   },
   "body_skill": {
     "file": "skills/yomiyasu/SKILL.md",
-    "characters": 42982
+    "characters": 43482
   },
   "instruction": {
     "file": "yomiyasu-pocket.txt",
-    "characters": 497,
-    "sha256": "617116cdf5c595c789d4d7eb23af6ed1aa32a5c1728b0f8cd945986e2cb98c35"
+    "characters": 498,
+    "sha256": "1de271b123ed0e8d9570af9274f0507bb5f34751e5135c12f01877695354fc27"
   },
   "sections": [
     {
@@ -61,7 +61,7 @@
         "## 2. 実行手順",
         "### Step 2: 文章の書き直し"
       ],
-      "sha256": "be2fb98d62598fbf1c427daca8f906ac481591c47f280fb4880798dce303a709"
+      "sha256": "5043e1012fddc34b71fb358a24d3469d5013c389a8b74b7e5671f2b674450f66"
     },
     {
       "id": "S06",
@@ -97,7 +97,7 @@
         "## 1. 基本原則",
         "### 段落と文の論理構造（つながり）"
       ],
-      "sha256": "1a0894b31e82e94c8f183903268683f0ec623f60116b4a41067f8e6f0308499a"
+      "sha256": "1c73b283492b1e57503175e3a1a1643c9d9bd30c62199b3ecbc48f7d2785aa1a"
     },
     {
       "id": "S10",
@@ -106,7 +106,7 @@
         "## 1. 基本原則",
         "### 装飾記号の排除と太字の表示"
       ],
-      "sha256": "d2073d0308bd924e4a3dcf01df44f5ea09b78c5ba3d2450f1352470e843608fa"
+      "sha256": "eda74fd0ac7b4e424717e04bb255e003f4098d3016357c484a67aac14d144829"
     },
     {
       "id": "S11",
@@ -115,7 +115,7 @@
         "## 1. 基本原則",
         "### 文長と読点の調整"
       ],
-      "sha256": "189dbb2078e0deea3524cb322bafe3a996150f968398fb8a187f584e0ad4220c"
+      "sha256": "818ec10bb4910e3c14740f40a3d02767f192290d7766c5d33963369c29d99e15"
     },
     {
       "id": "S12",
@@ -132,7 +132,7 @@
       "heading": [
         "## 3. 出力フォーマット"
       ],
-      "sha256": "ce3964e1841429d960e0e377b7e0c852c96fec4db85cbe8c5ba9801e8ad448cc"
+      "sha256": "484a1de67ea8aa2d6970d2f7c093792dfdfe5b481e2f0f61fe9ae746bb92f5a9"
     },
     {
       "id": "S14",
@@ -141,7 +141,7 @@
         "## 1. 基本原則",
         "### 案内用の見出し"
       ],
-      "sha256": "3eac75ee670c976cda05206eed702d42417abb135e034fef30f18c804bf586aa"
+      "sha256": "ab63ebdb2e9138485bf54bc60c0be31c6fa30ddad3d02ffb258d8cda1fb91ecd"
     },
     {
       "id": "S15",
@@ -149,15 +149,24 @@
       "heading": [
         "## 6. 不要な前置きと定型の結び"
       ],
-      "sha256": "7309fa3c13efbaa92c4823cf3102a7d2c4f439aff7bb78c371c5ef014333d922"
+      "sha256": "56688eea0dba4176b6cbf02dcaa9d37ad9e553f11f26b8245665c141418d57ed"
     },
     {
       "id": "S16",
       "file": "skills/yomiyasu/references/calques.md",
       "heading": [
-        "## 1. 3つの型"
+        "## 1. 4つの型"
       ],
-      "sha256": "b7c31c85c2c4885b301c3ae8d876b4b989a3ede58dcab8c9e3f0dddf2c4b99cb"
+      "sha256": "96f6832c7faa256a7eef9b6d86641a4df3dcf83e08267579731b3593a3034465"
+    },
+    {
+      "id": "S17",
+      "file": "skills/yomiyasu/references/review-points.md",
+      "heading": [
+        "## 2. 出力の節ごとの見方",
+        "### ■ 原文にない人や担当を足した文"
+      ],
+      "sha256": "cc95e5cba96ab2bc826883e5b67aa3bd2842eaf8620732d759215fad6532bda0"
     }
   ],
   "pieces": [
@@ -193,7 +202,8 @@
       "role": "meaning",
       "sources": [
         "S02",
-        "S09"
+        "S09",
+        "S17"
       ]
     },
     {

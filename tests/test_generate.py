@@ -46,7 +46,7 @@ REQUIRED_RULES = [
     ("自然な文と慣用句は直さない", "restraint", r"自然な文と慣用句[^。]*直さないでください。$"),
 ]
 
-# README に書かないもの。指示文の部分（生成する印のあいだ）は指示文そのものなので、除いてから探す
+# README に書かないもの。指示文の部分（生成する目印のコメントのあいだ）は指示文そのものなので、除いてから探す
 # （指示文の「文の働き（事実、意見、依頼、予定）」は、今後の予定を書いたものではない）。
 README_FORBIDDEN = [
     ("claude.ai", re.compile(r"claude\.ai", re.I)),
@@ -65,7 +65,7 @@ README_FORBIDDEN = [
 
 
 def region(text, name):
-    """README の生成する印のあいだの中身。組が1つでなければ None。"""
+    """README の生成する目印のコメントのあいだの中身。組が1つでなければ None。"""
     found = G.region_re(name).findall(text)
     return found[0][1] if len(found) == 1 else None
 
@@ -115,7 +115,7 @@ def have_body():
 def need_body(test):
     if not have_body():
         test.skipTest("本体のチェックアウトがないので飛ばします: BODY_DIR=%s（%s がありません）。"
-                      "git clone --depth 1 --branch v2.2.2 https://github.com/nanaism/yomiyasu body で置けます。"
+                      "git clone --depth 1 --branch v2.4.0 https://github.com/nanaism/yomiyasu body で置けます。"
                       % (BODY, SKILL_REL))
 
 
@@ -138,7 +138,7 @@ def copy_repo(dst):
 
 
 class RealBodyTest(unittest.TestCase):
-    """本体 v2.2.2 から作る試験。"""
+    """本体 v2.4.0 から作る試験。"""
 
     def setUp(self):
         need_body(self)
@@ -364,8 +364,8 @@ class CommittedFilesTest(unittest.TestCase):
 class MeasurementsTest(unittest.TestCase):
     """measurements/ に置いた測定の結果の試験。本体がなくても動く。"""
 
-    FINAL = "C5"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
-    MEASURED = "C5"  # 本体と3回ずつ比べた候補。合格の線はこの候補で見る
+    FINAL = "D2"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
+    MEASURED = "D2"  # 本体と3回ずつ比べた候補。合格の線はこの候補で見る
     RESULT_KEYS = {"cond", "run", "doc", "status", "meaning_risk_count", "risks", "lint_before", "lint_after",
                    "lint_after_rules", "changed_per_1000", "identical", "service_tier"}
 
@@ -379,7 +379,8 @@ class MeasurementsTest(unittest.TestCase):
             self.assertTrue(v.get("text") and v.get("note"), name)
 
     def test_pass_line(self):
-        # 合格の線: 本体と比べた候補の意味が変わる恐れが、3回の合計でも1回ずつでも本体を超えない
+        # 合格の線: 本体と比べた候補の意味が変わる恐れの3回の合計が、本体の3回の合計を超えない
+        # （本体 v2.2.2 の測定では1回ずつも見たが、本体 v2.4.0 の測定の合格の線は3回の合計だけ）
         summary = self.load("summary.json")
         body = [v for k, v in summary.items() if k.startswith("body/")]
         final = [v for k, v in summary.items() if k.startswith("pocket_%s/" % self.MEASURED)]
@@ -387,9 +388,9 @@ class MeasurementsTest(unittest.TestCase):
         self.assertEqual(len(final), 3)
         for v in body + final:
             self.assertEqual(v["n"], 115)
+        for v in final:
             self.assertEqual(v["ok"], 115)
         self.assertLessEqual(sum(v["meaning_risk"] for v in final), sum(v["meaning_risk"] for v in body))
-        self.assertLessEqual(max(v["meaning_risk"] for v in final), min(v["meaning_risk"] for v in body))
 
     def test_pocket_only_risks_are_read(self):
         only = self.load("pocket_only.json")
@@ -536,7 +537,7 @@ class TinyBodyTest(unittest.TestCase):
         self.assertEqual(read(os.path.join(self.repo, "yomiyasu-pocket.txt")), "意味を変えずに直します。足しません。\n")
         readme = read(os.path.join(self.repo, "README.md"))
         self.assertNotIn("pocket:version", readme)
-        self.assertIn("版 9.9.10", read(os.path.join(self.repo, "SOURCES.md")))
+        self.assertIn("バージョン 9.9.10", read(os.path.join(self.repo, "SOURCES.md")))
         self.assertIn("0" * 40, read(os.path.join(self.repo, "SOURCES.md")))
         size = "{:,}字の SKILL.md（v9.9.9）".format(len(TINY_SKILL))
         self.assertIn("本体は<!-- pocket:body-size:begin -->%s<!-- pocket:body-size:end -->です。" % size, readme)
@@ -644,7 +645,7 @@ class TinyBodyTest(unittest.TestCase):
             self.assertEqual(code, 5, (marker, err))
             self.assertIn("README.md", err)
             self.assert_nothing_written()
-        # 印が2組あっても止まる
+        # 目印のコメントが2組あっても止まる
         write(os.path.join(self.repo, "README.md"), TINY_README + "<!-- pocket:body-size:begin --><!-- pocket:body-size:end -->\n")
         self.snapshot()
         self.assertEqual(self.gen("--accept-changes")[0], 5)

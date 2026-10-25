@@ -8,8 +8,8 @@
   python3 tools/generate.py --body <本体> --accept-changes   （節のハッシュと本体のコミットを抽出表に書き直す）
   python3 tools/generate.py --body <本体> --out <フォルダ>    （生成物を別のフォルダに書く。試験用）
 
-作るもの: yomiyasu-pocket.txt、MANIFEST.json、SOURCES.md、README.md の生成する部分（印のコメントのあいだ）。
-README の生成する部分は、指示文と本体の SKILL.md の字数（len で数え、41,445字の形で書く）。生成元の本体の版とコミットは MANIFEST.json と SOURCES.md に書く。
+作るもの: yomiyasu-pocket.txt、MANIFEST.json、SOURCES.md、README.md の生成する部分（目印のコメントのあいだ）。
+README の生成する部分は、指示文と本体の SKILL.md の字数（len で数え、41,445字の形で書く）。生成元の本体のバージョンとコミットは MANIFEST.json と SOURCES.md に書く。
 時刻は入れないので、同じ抽出表と同じ本体からは同じバイト列ができる。
 
 終了コード:
@@ -19,7 +19,7 @@ README の生成する部分は、指示文と本体の SKILL.md の字数（len
     ないものと重なったものを1つの一覧にまとめて出し、何も書かない
   3 節の中身のハッシュが抽出表と違う（見直しが必要な節を出し、何も書かない。--accept-changes なら書き直して続ける）
   4 指示文が1段落でないか、500字を超える（何も書かない）
-  5 抽出表の形（部分の role がない、知らない role を含む）、本体の版やコミット、README の印がおかしい（何も書かない。
+  5 抽出表の形（部分の role がない、知らない role を含む）、本体のバージョンやコミット、README の目印のコメントがおかしい（何も書かない。
     コミットの違いだけは --accept-changes で書き直して続ける）
 標準ライブラリだけ。Python 3.9 以上。
 """
@@ -334,7 +334,7 @@ def build_sources(table, texts):
         "",
         "<!-- このファイルは tools/generate.py が作ります。手で直さず、extract/table.json を直して作り直してください。 -->",
         "",
-        "版 %s。本体 %s のタグ %s（コミット %s）の節から作りました。" % (
+        "バージョン %s。本体 %s のタグ %s（コミット %s）の節から作りました。" % (
             table["release"], body["repository"], body["tag"], body["commit"]),
         "",
         "## 文ごとの出どころ",
@@ -363,8 +363,8 @@ def region_re(name):
 
 
 def build_readme(readme, table, instruction, skill_chars):
-    """README の印のあいだを埋める。instruction は行の塊、body-size と body-size-row は文の中に置く。
-    生成元の本体の版とコミットは README には書かず、MANIFEST.json と SOURCES.md に書く。"""
+    """README の目印のコメントのあいだを埋める。instruction は行の塊、body-size と body-size-row は文の中に置く。
+    生成元の本体のバージョンとコミットは README には書かず、MANIFEST.json と SOURCES.md に書く。"""
     body = table["body"]
     size = "%sの SKILL.md（%s）" % (size_label(skill_chars), body["tag"])
     fills = {
@@ -392,7 +392,7 @@ def generate(repo, body, accept=False, log=None):
     skill_text = read_text(skill)
     version = body_version(skill_text)
     if version != tb["version"]:
-        raise GenError(5, "本体の版が抽出表と違います: 本体 %s、抽出表 %s。抽出表の body と release を直してから作り直します。"
+        raise GenError(5, "本体のバージョンが抽出表と違います: 本体 %s、抽出表 %s。抽出表の body と release を直してから作り直します。"
                        % (version, tb["version"]))
     table_changed = False
     head = git_head(body)

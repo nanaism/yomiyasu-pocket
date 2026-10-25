@@ -1,0 +1,398 @@
+{
+ "body/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 1,
+  "docs_with_risk": 1,
+  "lint_before": 50,
+  "lint_after": 34,
+  "lint_after_warn": 23,
+  "identical": 43,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 15
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 0,
+    "lint_after": 14
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 1,
+    "lint_after": 5
+   }
+  },
+  "human_change_median": 35.0
+ },
+ "body/r2": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 3,
+  "docs_with_risk": 3,
+  "lint_before": 50,
+  "lint_after": 35,
+  "lint_after_warn": 23,
+  "identical": 42,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 15
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
+    "lint_after": 14
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 1,
+    "lint_after": 6
+   }
+  },
+  "human_change_median": 47.8
+ },
+ "body/r3": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 3,
+  "docs_with_risk": 3,
+  "lint_before": 50,
+  "lint_after": 36,
+  "lint_after_warn": 23,
+  "identical": 42,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 16
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
+    "lint_after": 14
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 1,
+    "lint_after": 6
+   }
+  },
+  "human_change_median": 44.5
+ },
+ "pocket_C0/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 3,
+  "docs_with_risk": 2,
+  "lint_before": 50,
+  "lint_after": 44,
+  "lint_after_warn": 29,
+  "identical": 49,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 22
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 0,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 2,
+    "lint_after": 9
+   }
+  },
+  "human_change_median": 48.1
+ },
+ "pocket_C1/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 3,
+  "docs_with_risk": 3,
+  "lint_before": 50,
+  "lint_after": 48,
+  "lint_after_warn": 29,
+  "identical": 49,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 27
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 2,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 8
+   }
+  },
+  "human_change_median": 55.0
+ },
+ "pocket_C2/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 2,
+  "docs_with_risk": 2,
+  "lint_before": 50,
+  "lint_after": 47,
+  "lint_after_warn": 29,
+  "identical": 47,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 26
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 1,
+    "lint_after": 8
+   }
+  },
+  "human_change_median": 59.8
+ },
+ "pocket_C4/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 1,
+  "docs_with_risk": 1,
+  "lint_before": 50,
+  "lint_after": 43,
+  "lint_after_warn": 27,
+  "identical": 44,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 23
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 7
+   }
+  },
+  "human_change_median": 51.8
+ },
+ "pocket_C4/r2": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 3,
+  "docs_with_risk": 3,
+  "lint_before": 50,
+  "lint_after": 47,
+  "lint_after_warn": 28,
+  "identical": 49,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 26
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 1,
+    "lint_after": 8
+   }
+  },
+  "human_change_median": 52.9
+ },
+ "pocket_C4/r3": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 5,
+  "docs_with_risk": 4,
+  "lint_before": 50,
+  "lint_after": 45,
+  "lint_after_warn": 29,
+  "identical": 45,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 25
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 2,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 2,
+    "lint_after": 7
+   }
+  },
+  "human_change_median": 48.5
+ },
+ "pocket_C5/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 1,
+  "docs_with_risk": 1,
+  "lint_before": 50,
+  "lint_after": 43,
+  "lint_after_warn": 28,
+  "identical": 46,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 1,
+    "lint_after": 22
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 0,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 8
+   }
+  },
+  "human_change_median": 51.2
+ },
+ "pocket_C5/r2": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 0,
+  "docs_with_risk": 0,
+  "lint_before": 50,
+  "lint_after": 42,
+  "lint_after_warn": 27,
+  "identical": 49,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 23
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 0,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 6
+   }
+  },
+  "human_change_median": 48.5
+ },
+ "pocket_C5/r3": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 0,
+  "docs_with_risk": 0,
+  "lint_before": 50,
+  "lint_after": 45,
+  "lint_after_warn": 29,
+  "identical": 49,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 25
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 0,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 7
+   }
+  },
+  "human_change_median": 48.1
+ }
+}
