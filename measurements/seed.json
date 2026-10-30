@@ -1,108 +1,140 @@
 {
- "about": "本体 v2.4.0 の開発で使った、漢字1字の訳語を含む類例12本（合成した下書き10本と、実際の下書き2本）で、候補を比べた数。類例の文書はこのリポジトリに入れていない。候補ごとに12本を3回ずつ流し（Claude Code 2.1.296、claude-opus-5-5、effort high、道具なし）、決めておいた語の形が出力に残ったか、残すべき形を変えたかを、出力にその文字列があるかで数えた。直す形と残す形は合成した下書きにだけ決めてある。pocket には書き手に尋ねる欄がないので、尋ねたかは数えない。",
- "targets": {
-  "kanji1": "英語の短い術語に当てた漢字1字（版、頭、印）を含む形。1回に15か所",
-  "older": "本体 v2.3.0 までの推敲で直っていた漢字1字（段、窓、帯、床）を含む形。1回に9か所",
-  "keep": "残すべき使い方（窓から駅、箱に入れて、部署名と印、頭上、版画、第2版、吹き替え版、×印、曲の頭、箱にまとめて、部署名の印）。1回に13か所"
- },
- "results": {
-  "C5": {
-   "kanji1": 45,
-   "kanji1_left": 40,
-   "older": 27,
-   "older_left": 3,
-   "keep": 39,
-   "keep_changed": 0,
-   "by_run": {
-    "r1": {
-     "kanji1_left": 14,
-     "older_left": 3,
-     "keep_changed": 0
-    },
-    "r2": {
-     "kanji1_left": 14,
-     "older_left": 0,
-     "keep_changed": 0
-    },
-    "r3": {
-     "kanji1_left": 12,
-     "older_left": 0,
-     "keep_changed": 0
-    }
-   }
+  "about": "本体 v2.5.0 の推敲の測り（本体の CHANGELOG の 2.5.0「確かめたこと」）で使った、変えた決まりに当たる合成の下書き6本で、候補を比べた数。下書きはこのリポジトリに入れていない。候補ごとに6本を3回ずつ流し（Claude Code 2.1.310、claude-opus-5-5、effort high、道具なし）、出力の文字列で数えた。m2（見出しを言い切りの文のまま残し、まとめのページも残す依頼のスライド）と m3（まとめの節を残す依頼の記事）は、依頼の文を指示文と原稿のあいだに置いた。pocket には書き手に尋ねる欄がないので、尋ねたかは数えない。",
+  "targets": {
+    "m2_headings_kept": "m2 の見出しが原文とすべて同じだった回",
+    "m2_summary_kept": "m2 のまとめのページが残った回",
+    "m3_summary_kept": "m3 のまとめの節が残った回",
+    "m6_commas": "m6 の地の文の読点の数（原文は22個。見出し、表、引用、カギ括弧の中を除く）",
+    "m1_metaphor_kept": "m1 で、コードに動作が書いていない「門番」か「覚えています」が残った回（本体 v2.5.0 は残して尋ねた）",
+    "m4_paused_kept": "m4 で「`Paused` は…異常終了ではありません」の文が残った回",
+    "m5_guarantee_narrowed": "m5 で「到達保証ではありません」を、件数まで処理できるかの話に狭めた回"
   },
-  "D1": {
-   "kanji1": 45,
-   "kanji1_left": 1,
-   "older": 27,
-   "older_left": 0,
-   "keep": 39,
-   "keep_changed": 4,
-   "by_run": {
-    "r1": {
-     "kanji1_left": 0,
-     "older_left": 0,
-     "keep_changed": 2
+  "results": {
+    "E0": {
+      "m2_headings_kept": 3,
+      "m2_summary_kept": 3,
+      "m3_summary_kept": 3,
+      "m1_metaphor_kept": 0,
+      "m4_paused_kept": 3,
+      "m5_guarantee_narrowed": 2,
+      "m6_commas": [
+        6,
+        5,
+        6
+      ],
+      "by_run": {
+        "r1": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        },
+        "r2": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 5,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": false
+        },
+        "r3": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        }
+      }
     },
-    "r2": {
-     "kanji1_left": 1,
-     "older_left": 0,
-     "keep_changed": 2
+    "E1": {
+      "m2_headings_kept": 3,
+      "m2_summary_kept": 3,
+      "m3_summary_kept": 3,
+      "m1_metaphor_kept": 0,
+      "m4_paused_kept": 3,
+      "m5_guarantee_narrowed": 3,
+      "m6_commas": [
+        6,
+        6,
+        5
+      ],
+      "by_run": {
+        "r1": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        },
+        "r2": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        },
+        "r3": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 5,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        }
+      }
     },
-    "r3": {
-     "kanji1_left": 0,
-     "older_left": 0,
-     "keep_changed": 0
+    "E2": {
+      "m2_headings_kept": 3,
+      "m2_summary_kept": 3,
+      "m3_summary_kept": 3,
+      "m1_metaphor_kept": 0,
+      "m4_paused_kept": 3,
+      "m5_guarantee_narrowed": 3,
+      "m6_commas": [
+        6,
+        6,
+        6
+      ],
+      "by_run": {
+        "r1": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        },
+        "r2": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        },
+        "r3": {
+          "m2_headings_kept": true,
+          "m2_summary_kept": true,
+          "m3_summary_kept": true,
+          "m6_commas": 6,
+          "m1_metaphor_kept": false,
+          "m4_paused_kept": true,
+          "m5_guarantee_narrowed": true
+        }
+      }
     }
-   }
-  },
-  "D2": {
-   "kanji1": 45,
-   "kanji1_left": 0,
-   "older": 27,
-   "older_left": 0,
-   "keep": 39,
-   "keep_changed": 2,
-   "by_run": {
-    "r1": {
-     "kanji1_left": 0,
-     "older_left": 0,
-     "keep_changed": 0
-    },
-    "r2": {
-     "kanji1_left": 0,
-     "older_left": 0,
-     "keep_changed": 0
-    },
-    "r3": {
-     "kanji1_left": 0,
-     "older_left": 0,
-     "keep_changed": 2
-    }
-   }
   }
- },
- "final_harms": [
-  {
-   "run": "r3",
-   "doc": "k2d4_event",
-   "keep": "曲の頭",
-   "output": "曲の始め"
-  },
-  {
-   "run": "r3",
-   "doc": "k2d4_event",
-   "keep": "部署名の印",
-   "output": "部署名の目印"
-  }
- ],
- "body": {
-  "version": "2.4.0",
-  "kanji1": 45,
-  "kanji1_left_without_asking": 0,
-  "kanji1_asked": 7,
-  "keep": 39,
-  "keep_changed": 0,
-  "note": "本体 v2.4.0 の開発で、型4の決まりを入れた本体に同じ12本を3回ずつ推敲させたときの数（Claude Code、claude-opus-5-5）。本体は言い換えを決められないとき、本文を残して書き手に尋ねる。kanji1_asked は、形が残り、書き手に確かめたい点でその字に触れた数"
- }
 }

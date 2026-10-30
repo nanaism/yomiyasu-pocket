@@ -1,21 +1,21 @@
 {
   "format": "yomiyasu-pocket-manifest",
   "format_version": 1,
-  "release": "1.1.0",
+  "release": "1.2.0",
   "body": {
     "repository": "https://github.com/nanaism/yomiyasu",
-    "version": "2.4.0",
-    "tag": "v2.4.0",
-    "commit": "ae258d7a57b335673e30b88a018ae08d4f72c449"
+    "version": "2.5.0",
+    "tag": "v2.5.0",
+    "commit": "29d67ccb05e370b5958d72920a9cd1aa829dee80"
   },
   "body_skill": {
     "file": "skills/yomiyasu/SKILL.md",
-    "characters": 43482
+    "characters": 46311
   },
   "instruction": {
     "file": "yomiyasu-pocket.txt",
-    "characters": 498,
-    "sha256": "1de271b123ed0e8d9570af9274f0507bb5f34751e5135c12f01877695354fc27"
+    "characters": 500,
+    "sha256": "ca4aebd1320483d816a7d5bd367eb94e7c39ec3a9759655d6a1d136018b9caeb"
   },
   "sections": [
     {
@@ -61,7 +61,7 @@
         "## 2. 実行手順",
         "### Step 2: 文章の書き直し"
       ],
-      "sha256": "5043e1012fddc34b71fb358a24d3469d5013c389a8b74b7e5671f2b674450f66"
+      "sha256": "ccb947a83625a8795fe8867dad58f3b63ae43b443924df3c0a9bf9a6867eea0f"
     },
     {
       "id": "S06",
@@ -70,7 +70,7 @@
         "## 1. 基本原則",
         "### 擬人化の解消"
       ],
-      "sha256": "0a7a6511091da1f1d44bd4b1dca85a4b15534e80d3d8e8ccbb6b2e9611528318"
+      "sha256": "7dcb174d5a1a14b54bf804c79aa287efe6e189113c046a48e2a48af14090feb8"
     },
     {
       "id": "S07",
@@ -88,7 +88,7 @@
         "## 1. 基本原則",
         "### セルフラベリングと否定対比の整理"
       ],
-      "sha256": "46c5c71d9b0495d2e1b34fc147cf51dc38c2f064fba90f05e716460e26373fea"
+      "sha256": "dff74112903e7bd66ae4aecad9788cc57ee55ebd73a8758b1e3b08184b7338fc"
     },
     {
       "id": "S09",
@@ -97,7 +97,7 @@
         "## 1. 基本原則",
         "### 段落と文の論理構造（つながり）"
       ],
-      "sha256": "1c73b283492b1e57503175e3a1a1643c9d9bd30c62199b3ecbc48f7d2785aa1a"
+      "sha256": "0b664b6718ac11a8c0b9559cf9e4d5abaeb1a73084c0869b3bc6244f94478aa2"
     },
     {
       "id": "S10",
@@ -115,7 +115,7 @@
         "## 1. 基本原則",
         "### 文長と読点の調整"
       ],
-      "sha256": "818ec10bb4910e3c14740f40a3d02767f192290d7766c5d33963369c29d99e15"
+      "sha256": "e193a81f8b177845dc1d4e820eabec2f3e75ff8d59f850ea5604a1c7086ec231"
     },
     {
       "id": "S12",
@@ -141,7 +141,7 @@
         "## 1. 基本原則",
         "### 案内用の見出し"
       ],
-      "sha256": "ab63ebdb2e9138485bf54bc60c0be31c6fa30ddad3d02ffb258d8cda1fb91ecd"
+      "sha256": "87c8302d6a1f67fc78019c87ec8607e706529ff74d892581f3cf83d624eed223"
     },
     {
       "id": "S15",
@@ -220,7 +220,8 @@
       "role": "meaning",
       "sources": [
         "S04",
-        "S05"
+        "S05",
+        "S14"
       ]
     },
     {

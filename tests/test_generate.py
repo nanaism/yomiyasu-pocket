@@ -36,12 +36,15 @@ REQUIRED_RULES = [
     ("文を削らない", "meaning", r"文も削らないでください。$"),
     ("分からない所を推測で埋めない", "meaning", r"推測で埋めず[^。]*残してください。$"),
     ("文体と見出しや箇条書きの数と順を保つ", "meaning", r"文体[^。]*見出しや箇条書きの数と順[^。]*保ってください。$"),
-    ("かぎかっこの中の言葉を保つ", "meaning", r"かぎかっこの中の言葉[^。]*保ってください。$"),
+    ("指定された見出しの形を保つ", "meaning", r"指定の見出しの形[^。]*保ってください。$"),
+    ("かぎかっこの中の言葉を保つ", "meaning", r"かぎかっこの中(?:の言葉)?[^。]*保ってください。$"),
     ("つながりを変えない", "meaning", r"つながりを変える書き換え[^。]*しないでください。$"),
     ("本文だけを返す", "output", r"本文だけを返し[^。]*付けないでください。$"),
-    ("AIらしい言い回しを直す", "style", r"AIらしい言い回し[^。]*直してください。$"),
-    ("直訳語を直す", "style", r"英語を一語ずつ写した言い回し[^。]*直してください。$"),
-    ("本文に出てこない比喩の見出しを直す", "style", r"本文に出てこない比喩の見出し[^。]*直してください。$"),
+    # 1.2.0 から、直す決まりの文は「…直し、読点は足さないでください。」で終わる。「直さない」に変われば落ちる
+    ("AIらしい言い回しを直す", "style", r"AIらしい言い回し[^。]*直し(?:てください|、[^。]*ください)。$"),
+    ("直訳語を直す", "style", r"英語を一語ずつ写した言い回し[^。]*直し(?:てください|、[^。]*ください)。$"),
+    ("本文に出てこない比喩の見出しを直す", "style", r"本文に出てこない比喩の見出し[^。]*直し(?:てください|、[^。]*ください)。$"),
+    ("推敲で読点を足さない", "style", r"読点は足さないでください。$"),
     ("「と言えるでしょう」は区分の判断でなければ推量を残して直す", "style", r"「と言えるでしょう」は[^。]*区分の判断でなければ「でしょう」にしてください。$"),
     ("自然な文と慣用句は直さない", "restraint", r"自然な文と慣用句[^。]*直さないでください。$"),
 ]
@@ -115,7 +118,7 @@ def have_body():
 def need_body(test):
     if not have_body():
         test.skipTest("本体のチェックアウトがないので飛ばします: BODY_DIR=%s（%s がありません）。"
-                      "git clone --depth 1 --branch v2.4.0 https://github.com/nanaism/yomiyasu body で置けます。"
+                      "git clone --depth 1 --branch v2.5.0 https://github.com/nanaism/yomiyasu body で置けます。"
                       % (BODY, SKILL_REL))
 
 
@@ -138,7 +141,7 @@ def copy_repo(dst):
 
 
 class RealBodyTest(unittest.TestCase):
-    """本体 v2.4.0 から作る試験。"""
+    """本体 v2.5.0 から作る試験。"""
 
     def setUp(self):
         need_body(self)
@@ -364,8 +367,8 @@ class CommittedFilesTest(unittest.TestCase):
 class MeasurementsTest(unittest.TestCase):
     """measurements/ に置いた測定の結果の試験。本体がなくても動く。"""
 
-    FINAL = "D2"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
-    MEASURED = "D2"  # 本体と3回ずつ比べた候補。合格の線はこの候補で見る
+    FINAL = "E1"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
+    MEASURED = "E1"  # 本体と3回ずつ比べた候補。合格の線はこの候補で見る
     RESULT_KEYS = {"cond", "run", "doc", "status", "meaning_risk_count", "risks", "lint_before", "lint_after",
                    "lint_after_rules", "changed_per_1000", "identical", "service_tier"}
 
@@ -380,7 +383,7 @@ class MeasurementsTest(unittest.TestCase):
 
     def test_pass_line(self):
         # 合格の線: 本体と比べた候補の意味が変わる恐れの3回の合計が、本体の3回の合計を超えない
-        # （本体 v2.2.2 の測定では1回ずつも見たが、本体 v2.4.0 の測定の合格の線は3回の合計だけ）
+        # （本体 v2.2.2 の測定では1回ずつも見たが、本体 v2.4.0 と v2.5.0 の測定の合格の線は3回の合計だけ）
         summary = self.load("summary.json")
         body = [v for k, v in summary.items() if k.startswith("body/")]
         final = [v for k, v in summary.items() if k.startswith("pocket_%s/" % self.MEASURED)]

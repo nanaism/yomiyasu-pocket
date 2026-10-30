@@ -2,17 +2,17 @@
  "body/r1": {
   "n": 115,
   "ok": 115,
-  "meaning_risk": 3,
-  "docs_with_risk": 3,
+  "meaning_risk": 4,
+  "docs_with_risk": 4,
   "lint_before": 50,
-  "lint_after": 37,
-  "lint_after_warn": 24,
-  "identical": 51,
+  "lint_after": 34,
+  "lint_after_warn": 22,
+  "identical": 50,
   "groups": {
    "raw_ai": {
     "n": 26,
-    "meaning_risk": 0,
-    "lint_after": 15
+    "meaning_risk": 1,
+    "lint_after": 14
    },
    "blacklist_ai": {
     "n": 24,
@@ -27,30 +27,30 @@
    "human": {
     "n": 16,
     "meaning_risk": 2,
-    "lint_after": 8
+    "lint_after": 6
    }
   },
-  "human_change_median": 43.6
+  "human_change_median": 49.8
  },
  "body/r2": {
   "n": 115,
-  "ok": 114,
+  "ok": 115,
   "meaning_risk": 1,
   "docs_with_risk": 1,
-  "lint_before": 49,
-  "lint_after": 37,
-  "lint_after_warn": 23,
-  "identical": 52,
+  "lint_before": 50,
+  "lint_after": 35,
+  "lint_after_warn": 21,
+  "identical": 51,
   "groups": {
    "raw_ai": {
     "n": 26,
     "meaning_risk": 0,
-    "lint_after": 16
+    "lint_after": 17
    },
    "blacklist_ai": {
     "n": 24,
-    "meaning_risk": 0,
-    "lint_after": 14
+    "meaning_risk": 1,
+    "lint_after": 12
    },
    "edge_cases": {
     "n": 49,
@@ -58,19 +58,19 @@
     "lint_after": 0
    },
    "human": {
-    "n": 15,
-    "meaning_risk": 1,
-    "lint_after": 7
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 6
    }
   },
-  "human_change_median": 40.0
+  "human_change_median": 38.3
  },
  "body/r3": {
   "n": 115,
-  "ok": 114,
-  "meaning_risk": 0,
-  "docs_with_risk": 0,
-  "lint_before": 49,
+  "ok": 115,
+  "meaning_risk": 1,
+  "docs_with_risk": 1,
+  "lint_before": 50,
   "lint_after": 37,
   "lint_after_warn": 23,
   "identical": 53,
@@ -91,88 +91,22 @@
     "lint_after": 0
    },
    "human": {
-    "n": 15,
-    "meaning_risk": 0,
+    "n": 16,
+    "meaning_risk": 1,
     "lint_after": 7
    }
   },
-  "human_change_median": 41.8
+  "human_change_median": 36.2
  },
- "pocket_C5/r1": {
+ "pocket_E0/r1": {
   "n": 115,
   "ok": 115,
-  "meaning_risk": 0,
-  "docs_with_risk": 0,
+  "meaning_risk": 1,
+  "docs_with_risk": 1,
   "lint_before": 50,
-  "lint_after": 44,
-  "lint_after_warn": 29,
-  "identical": 59,
-  "groups": {
-   "raw_ai": {
-    "n": 26,
-    "meaning_risk": 0,
-    "lint_after": 24
-   },
-   "blacklist_ai": {
-    "n": 24,
-    "meaning_risk": 0,
-    "lint_after": 13
-   },
-   "edge_cases": {
-    "n": 49,
-    "meaning_risk": 0,
-    "lint_after": 0
-   },
-   "human": {
-    "n": 16,
-    "meaning_risk": 0,
-    "lint_after": 7
-   }
-  },
-  "human_change_median": 69.9
- },
- "pocket_D1/r1": {
-  "n": 115,
-  "ok": 115,
-  "meaning_risk": 0,
-  "docs_with_risk": 0,
-  "lint_before": 50,
-  "lint_after": 34,
-  "lint_after_warn": 24,
-  "identical": 58,
-  "groups": {
-   "raw_ai": {
-    "n": 26,
-    "meaning_risk": 0,
-    "lint_after": 16
-   },
-   "blacklist_ai": {
-    "n": 24,
-    "meaning_risk": 0,
-    "lint_after": 13
-   },
-   "edge_cases": {
-    "n": 49,
-    "meaning_risk": 0,
-    "lint_after": 0
-   },
-   "human": {
-    "n": 16,
-    "meaning_risk": 0,
-    "lint_after": 5
-   }
-  },
-  "human_change_median": 62.9
- },
- "pocket_D2/r1": {
-  "n": 115,
-  "ok": 115,
-  "meaning_risk": 2,
-  "docs_with_risk": 2,
-  "lint_before": 50,
-  "lint_after": 41,
+  "lint_after": 43,
   "lint_after_warn": 28,
-  "identical": 50,
+  "identical": 59,
   "groups": {
    "raw_ai": {
     "n": 26,
@@ -181,7 +115,7 @@
    },
    "blacklist_ai": {
     "n": 24,
-    "meaning_risk": 2,
+    "meaning_risk": 1,
     "lint_after": 13
    },
    "edge_cases": {
@@ -192,20 +126,20 @@
    "human": {
     "n": 16,
     "meaning_risk": 0,
-    "lint_after": 5
+    "lint_after": 7
    }
   },
-  "human_change_median": 88.4
+  "human_change_median": 67.0
  },
- "pocket_D2/r2": {
+ "pocket_E1/r1": {
   "n": 115,
   "ok": 115,
   "meaning_risk": 0,
   "docs_with_risk": 0,
   "lint_before": 50,
-  "lint_after": 39,
+  "lint_after": 41,
   "lint_after_warn": 27,
-  "identical": 49,
+  "identical": 54,
   "groups": {
    "raw_ai": {
     "n": 26,
@@ -225,29 +159,95 @@
    "human": {
     "n": 16,
     "meaning_risk": 0,
+    "lint_after": 7
+   }
+  },
+  "human_change_median": 73.4
+ },
+ "pocket_E1/r2": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 2,
+  "docs_with_risk": 2,
+  "lint_before": 50,
+  "lint_after": 40,
+  "lint_after_warn": 27,
+  "identical": 56,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 22
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 1,
     "lint_after": 5
    }
   },
-  "human_change_median": 64.8
+  "human_change_median": 68.7
  },
- "pocket_D2/r3": {
+ "pocket_E1/r3": {
   "n": 115,
   "ok": 115,
   "meaning_risk": 0,
   "docs_with_risk": 0,
   "lint_before": 50,
-  "lint_after": 39,
-  "lint_after_warn": 25,
-  "identical": 53,
+  "lint_after": 42,
+  "lint_after_warn": 27,
+  "identical": 49,
   "groups": {
    "raw_ai": {
     "n": 26,
     "meaning_risk": 0,
-    "lint_after": 20
+    "lint_after": 22
    },
    "blacklist_ai": {
     "n": 24,
     "meaning_risk": 0,
+    "lint_after": 13
+   },
+   "edge_cases": {
+    "n": 49,
+    "meaning_risk": 0,
+    "lint_after": 0
+   },
+   "human": {
+    "n": 16,
+    "meaning_risk": 0,
+    "lint_after": 7
+   }
+  },
+  "human_change_median": 56.2
+ },
+ "pocket_E2/r1": {
+  "n": 115,
+  "ok": 115,
+  "meaning_risk": 1,
+  "docs_with_risk": 1,
+  "lint_before": 50,
+  "lint_after": 40,
+  "lint_after_warn": 27,
+  "identical": 54,
+  "groups": {
+   "raw_ai": {
+    "n": 26,
+    "meaning_risk": 0,
+    "lint_after": 21
+   },
+   "blacklist_ai": {
+    "n": 24,
+    "meaning_risk": 1,
     "lint_after": 13
    },
    "edge_cases": {

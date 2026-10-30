@@ -1,0 +1,24 @@
+[
+ {
+  "run": "r1",
+  "doc": "blacklist_ai/06_spec_draft_sonnet_default",
+  "kind": "promise",
+  "subkind": "guarantee",
+  "old_line": 7,
+  "new_line": 7,
+  "old": "重複配信に備え、プロバイダのイベントIDで冪等性を担保する。",
+  "new": "重複配信に備えて、プロバイダのイベントIDで冪等性を担保する。",
+  "reading": "「備え、」を「備えて、」にしただけで、「冪等性を担保する」は元の文にも同じ形である。diff はこの文の保証の言い方（担保する）を確かめる所として数えたが、何を保証するかも言い切りの強さも変わっていない。"
+ },
+ {
+  "run": "r1",
+  "doc": "blacklist_ai/07_code_review_sonnet_casual",
+  "kind": "number",
+  "subkind": "lost",
+  "old_line": 1,
+  "new_line": 1,
+  "old": "`OrderService.checkout` の中で、在庫テーブルへの直接クエリ、決済APIのHTTP呼び出し、割引計算のロジックが1メソッドに並んでいます。",
+  "new": "`OrderService.checkout` の中に、在庫テーブルへの直接クエリ、決済APIのHTTP呼び出し、割引計算のロジックが1つのメソッドに並んでいます。",
+  "reading": "「1メソッド」を「1つのメソッド」にしたので、diff が「数の言い方が消えた」として数えた。3つの処理が1つのメソッドに並んでいるという意味は同じ。「の中で」を「の中に」にもしたが、意味は変わらない。"
+ }
+]
