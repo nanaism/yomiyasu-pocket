@@ -91,7 +91,7 @@ pocket の意味が変わる恐れは3回の合計で1件で、本体の5件を�
 
 pocket は本体より、AIらしい言い回しの候補を多く残します（本体の32〜36件に対して41〜42件）。`human/` の文を書き換えた量の中央値は、本体の38.3〜38.5に対して、pocket は41.5〜52.5でした。
 
-本体 v3.0.0 には、漢語と和語の選び方を原文のままにする決まりが足されました。ある利用者から、推敲で「確認」を「確かめ」にするように漢語を和語に開きすぎるという指摘があったためです。pocket の指示文にも、この決まりを入れました。漢語を和語に開いた所を本体の開発と同じ数え方で数えると、115本の1回目では、決まりを入れる前の指示文が14か所、いまの指示文が4か所でした。いまの指示文の3回は4・1・0か所、本体の3回は4・3・0か所です。
+本体 v3.0.0 には、漢語と和語の選び方を原文のままにする決まりが足されました。ある利用者から、推敲で「確認」を「確かめ」にするように漢語を和語に開きすぎるという指摘があったためです。pocket の指示文にもこの決まりを入れました。漢語を和語に開いた所を本体の開発と同じ数え方で数えると、115本の1回目では、決まりを入れる前の指示文が14件、いまの指示文が4件でした。いまの指示文の3回は4・1・0件、本体の3回は4・3・0件です。この数え方では、1つの書き換えが2件に数えられることがあります（[measurements/README.md](./measurements/README.md) の「漢語を和語に開いた所」）。
 
 測り方、指示文の候補ごとの比較、漢語を和語に開いた所の数え方は [measurements/README.md](./measurements/README.md) にあります。本体 v2.5.0 から作った前の指示文の測定は [measurements/v2.5.0/README.md](./measurements/v2.5.0/README.md) に、それより前の測定は [measurements/v2.4.0/README.md](./measurements/v2.4.0/README.md)、[measurements/v2.2.2/README.md](./measurements/v2.2.2/README.md)、[measurements/v2.1.1/README.md](./measurements/v2.1.1/README.md) にあります。
 
@@ -122,7 +122,7 @@ pocket は、スキルを読み込めず指示欄に貼るしかないときや�
    git clone --depth 1 --branch v3.0.0 https://github.com/nanaism/yomiyasu body
    ```
 
-2. 本体のバージョンが変わったら、`extract/table.json` の `body`（version、tag、commit）を書き直します。`release` は pocket 自身のバージョン（`1.2.0` のような3つの数）です。生成元の本体のバージョンとコミットは、`MANIFEST.json` と `SOURCES.md` に書き出されます。
+2. 本体のバージョンが変わったら、`extract/table.json` の `body`（version、tag、commit）を書き直します。`release` は pocket 自身のバージョン（`2.0.0` のような3つの数）です。生成元の本体のバージョンとコミットは、`MANIFEST.json` と `SOURCES.md` に書き出されます。
 3. 生成します。
 
    ```bash
