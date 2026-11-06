@@ -1,0 +1,220 @@
+{
+ "about": "漢語を和語に開いた置き換えの数。yomiyasu 本体の開発で、利用者の指摘（「確認→確かめ」のように漢語を和語に開きすぎる）を確かめたときと同じ数え方。原稿と出力を文字の difflib で比べ、置き換えの区間の元の側に表の漢語があり、新しい側にその和語の言い方があるものを1件と数える。表は確認、使用、停止、現在、実施、発生、変更、調査、導入、増加など37語の漢語と、その和語の言い方。",
+ "corpus_115": {
+  "body/r1": {
+   "conversions": 4,
+   "items": [
+    {
+     "doc": "blacklist_ai__01_tech_arch_sonnet_formal",
+     "kango": "調査",
+     "old": "を止めずに原因調査と再投入を行えるよ",
+     "new": "止めずに原因を調べてメッセージを再投入できるよう"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "デートで既存動作に変更が入るケース",
+     "new": "ートで既存の動作が変わることがあり"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "トで既存動作に変更が入るケースがありま",
+     "new": "で既存の動作が変わることがあります"
+    },
+    {
+     "doc": "raw_ai__02_incident_report_sonnet_default",
+     "kango": "実施",
+     "old": "タイムアウトの短縮を実施します。",
+     "new": "タイムアウトを短くします。 "
+    }
+   ]
+  },
+  "body/r2": {
+   "conversions": 3,
+   "items": [
+    {
+     "doc": "blacklist_ai__07_code_review_sonnet_formal",
+     "kango": "変更",
+     "old": "変更やスキーマ変更が、業務ロジックの修",
+     "new": "様やスキーマが変わると業務ロジックの修"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "デートで既存動作に変更が入るケース",
+     "new": "ートで既存の動作が変わることがあり"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "トで既存動作に変更が入るケースがありま",
+     "new": "で既存の動作が変わることがあります"
+    }
+   ]
+  },
+  "body/r3": {
+   "conversions": 0,
+   "items": []
+  },
+  "pocket_F0/r1": {
+   "conversions": 14,
+   "items": [
+    {
+     "doc": "blacklist_ai__02_incident_report_sonnet_formal",
+     "kango": "増加",
+     "old": "リクエスト数が増加し、アプリケーショ",
+     "new": "リクエスト数が増え、アプリケーショ"
+    },
+    {
+     "doc": "blacklist_ai__03_pr_description_sonnet_formal",
+     "kango": "送信",
+     "old": "ーへ更新要求を送信していた。このため",
+     "new": "ーに更新要求を送っていた。このため"
+    },
+    {
+     "doc": "human__human_doc_09",
+     "kango": "発生",
+     "old": "気づけない問題が発生します。  src",
+     "new": "気づけない問題が起きます。  src"
+    },
+    {
+     "doc": "human__human_doc_10",
+     "kango": "発生",
+     "old": "について  先週発生したデータベース接",
+     "new": "について  先週起きたデータベース接"
+    },
+    {
+     "doc": "human__human_doc_10",
+     "kango": "調査",
+     "old": "エラーの原因を調査しました。WebA",
+     "new": "エラーの原因を調べました。WebA"
+    },
+    {
+     "doc": "human__human_doc_10",
+     "kango": "導入",
+     "old": "ncerを中継層として導入し、トランザク",
+     "new": "ncerを中継層に入れ、トランザク"
+    },
+    {
+     "doc": "human__human_doc_10",
+     "kango": "導入",
+     "old": "中継層として導入し、トランザクショ",
+     "new": "erを中継層に入れ、トランザクショ"
+    },
+    {
+     "doc": "human__human_doc_10",
+     "kango": "増加",
+     "old": "インスタンスが増加しても、DBへの実",
+     "new": "インスタンスが増えても、DBへの実"
+    },
+    {
+     "doc": "human__human_doc_11",
+     "kango": "発生",
+     "old": "た際に二重決済が発生するリスクがあった",
+     "new": "ときに二重決済が起きるリスクがあった"
+    },
+    {
+     "doc": "human__human_doc_12",
+     "kango": "実施",
+     "old": "パッチ適用作業を実施します。  作業時",
+     "new": "を適用する作業を行います。  作業時"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "デートで既存動作に変更が入るケース",
+     "new": "ートで既存の動作が変わることがあり"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "トで既存動作に変更が入るケースがありま",
+     "new": "で既存の動作が変わることがあります"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "確認",
+     "old": "成功することを確認してからマージしま",
+     "new": "て成功したのを確かめてからマージしま"
+    },
+    {
+     "doc": "raw_ai__02_incident_report_sonnet_formal",
+     "kango": "増加",
+     "old": "リクエスト数が増加し、データベースの",
+     "new": "リクエスト数が増え、データベースの"
+    }
+   ]
+  },
+  "pocket_F1/r1": {
+   "conversions": 4,
+   "items": [
+    {
+     "doc": "blacklist_ai__01_tech_arch_sonnet_default",
+     "kango": "調査",
+     "old": "設定し、原因を調査したうえで再投入す",
+     "new": "設定し、原因を調べたうえで再投入す"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "デートで既存動作に変更が入るケース",
+     "new": "ートで既存の動作が変わるケースがあ"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "変更",
+     "old": "トで既存動作に変更が入るケースがありま",
+     "new": "で既存の動作が変わるケースがありま"
+    },
+    {
+     "doc": "human__human_doc_16",
+     "kango": "確認",
+     "old": "成功することを確認してからマージしま",
+     "new": "成功したことを確かめてからマージしま"
+    }
+   ]
+  },
+  "pocket_F1/r2": {
+   "conversions": 1,
+   "items": [
+    {
+     "doc": "human__human_doc_16",
+     "kango": "確認",
+     "old": "成功することを確認してからマージしま",
+     "new": "成功したことを確かめてからマージしま"
+    }
+   ]
+  },
+  "pocket_F1/r3": {
+   "conversions": 0,
+   "items": []
+  }
+ },
+ "kango_drafts_8": {
+  "about": "本体の開発で作られた、漢語の多い業務・技術の合成の下書き8本（このリポジトリには入れていない）。F0 と F1 を2回ずつ流した。",
+  "pocket_F0/r1": {
+   "conversions": 1,
+   "items": [
+    {
+     "doc": "k02",
+     "kango": "増加",
+     "old": "められる回数は増加する。業務部門と協",
+     "new": "められる回数は増える。業務部門と協"
+    }
+   ]
+  },
+  "pocket_F0/r2": {
+   "conversions": 0,
+   "items": []
+  },
+  "pocket_F1/r1": {
+   "conversions": 0,
+   "items": []
+  },
+  "pocket_F1/r2": {
+   "conversions": 0,
+   "items": []
+  }
+ }
+}

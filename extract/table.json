@@ -1,12 +1,12 @@
 {
   "format": "yomiyasu-pocket-extract",
   "format_version": 1,
-  "release": "1.2.0",
+  "release": "2.0.0",
   "body": {
     "repository": "https://github.com/nanaism/yomiyasu",
-    "version": "2.5.0",
-    "tag": "v2.5.0",
-    "commit": "29d67ccb05e370b5958d72920a9cd1aa829dee80"
+    "version": "3.0.0",
+    "tag": "v3.0.0",
+    "commit": "e0177404840178cb6dfb648b19b9928380abd04a"
   },
   "sections": [
     {
@@ -16,7 +16,7 @@
         "## 1. 基本原則",
         "### 最優先ルール: 意味の保持"
       ],
-      "sha256": "0800c0509f2091bd6334c1d0f9262775975c36d4db5993dda4971c94704f0e34"
+      "sha256": "52c6574e63857caf2b5e620e9be8e5e9042229d082ca987d6fbabc483c6e0c6c"
     },
     {
       "id": "S02",
@@ -25,7 +25,7 @@
         "## 1. 基本原則",
         "### 情報の不増補（足さない）"
       ],
-      "sha256": "068277e35d9aba246bbae82952004186a4623bb6e4dd4e9cf1d2551768f1edaa"
+      "sha256": "f2d11fea8d0ccecfd6cee2b0aad115a149a632ffe81a8d823b364826793b5ff5"
     },
     {
       "id": "S03",
@@ -34,7 +34,7 @@
         "## 1. 基本原則",
         "### 情報が足りない場合の暫定文"
       ],
-      "sha256": "cb26196f3bfedffdd877bf493fdcafb686b02ec926d75bf0a1cfd98aa391e40d"
+      "sha256": "6214ec2863886c81f17c28a23e8b772cce88dc9b17135dee9951348c4421be3b"
     },
     {
       "id": "S04",
@@ -43,34 +43,25 @@
         "## 1. 基本原則",
         "### 文書の立場と文末"
       ],
-      "sha256": "d2fb3178181c7fa3b38ddf8ee70d260ccafba3cbf32cac4be953a346a7cfb25d"
+      "sha256": "71a6d4ba12250197535377e0080a453155b72c75931dd47292304802a800a88e"
     },
     {
       "id": "S05",
       "file": "skills/yomiyasu/SKILL.md",
       "heading": [
         "## 2. 実行手順",
-        "### Step 2: 文章の書き直し"
+        "### Step 2: 上から読み、1か所ずつ直す"
       ],
-      "sha256": "ccb947a83625a8795fe8867dad58f3b63ae43b443924df3c0a9bf9a6867eea0f"
+      "sha256": "fd429f84b6a607dfb5f610c4f497115812db53d8793586624ee141fadf9cbf5f"
     },
     {
       "id": "S06",
       "file": "skills/yomiyasu/SKILL.md",
       "heading": [
         "## 1. 基本原則",
-        "### 擬人化の解消"
+        "### 比喩動詞の具体化と擬人化の解消"
       ],
-      "sha256": "7dcb174d5a1a14b54bf804c79aa287efe6e189113c046a48e2a48af14090feb8"
-    },
-    {
-      "id": "S07",
-      "file": "skills/yomiyasu/SKILL.md",
-      "heading": [
-        "## 1. 基本原則",
-        "### 比喩動詞の具体化"
-      ],
-      "sha256": "66a238b41b4d7e796817dff940ad26096c992bb353121a8a490358fe7ca0442f"
+      "sha256": "4de5c9910caf08142ac7911ea291849657d62962ab0af35a2e836abd0b475975"
     },
     {
       "id": "S08",
@@ -79,7 +70,7 @@
         "## 1. 基本原則",
         "### セルフラベリングと否定対比の整理"
       ],
-      "sha256": "dff74112903e7bd66ae4aecad9788cc57ee55ebd73a8758b1e3b08184b7338fc"
+      "sha256": "6e2c109fc9ba9452bc7655b2f8368157f7d93dc27cc5be6c7283087c8e5a6b40"
     },
     {
       "id": "S09",
@@ -88,16 +79,16 @@
         "## 1. 基本原則",
         "### 段落と文の論理構造（つながり）"
       ],
-      "sha256": "0b664b6718ac11a8c0b9559cf9e4d5abaeb1a73084c0869b3bc6244f94478aa2"
+      "sha256": "7e9a8d016ea08e53b3dccea13ef5ef015bc1ef14f5f395b20a356b4100244af1"
     },
     {
       "id": "S10",
       "file": "skills/yomiyasu/SKILL.md",
       "heading": [
         "## 1. 基本原則",
-        "### 装飾記号の排除と太字の表示"
+        "### 装飾記号の排除と太字の表示、コピー調の抑制"
       ],
-      "sha256": "eda74fd0ac7b4e424717e04bb255e003f4098d3016357c484a67aac14d144829"
+      "sha256": "73e6bfbcc7a4ae0ded0044dcfe3abdb6c2a43b60bd14b635882c09def82f513c"
     },
     {
       "id": "S11",
@@ -106,16 +97,7 @@
         "## 1. 基本原則",
         "### 文長と読点の調整"
       ],
-      "sha256": "e193a81f8b177845dc1d4e820eabec2f3e75ff8d59f850ea5604a1c7086ec231"
-    },
-    {
-      "id": "S12",
-      "file": "skills/yomiyasu/SKILL.md",
-      "heading": [
-        "## 1. 基本原則",
-        "### コピー調の抑制"
-      ],
-      "sha256": "1f18c57dc3cdf9ede4f08b9384741813b9b9a001a64406e14c988bc9356372a3"
+      "sha256": "288ee70b2ae0213acdfe7a57097825c1f638e943654edd7cee9009b98fdddb53"
     },
     {
       "id": "S13",
@@ -123,7 +105,7 @@
       "heading": [
         "## 3. 出力フォーマット"
       ],
-      "sha256": "484a1de67ea8aa2d6970d2f7c093792dfdfe5b481e2f0f61fe9ae746bb92f5a9"
+      "sha256": "e72ef0630db1debbc3677b341ec2e54fbad9f7eb7482d2103ba5815b05d19b15"
     },
     {
       "id": "S14",
@@ -132,7 +114,7 @@
         "## 1. 基本原則",
         "### 案内用の見出し"
       ],
-      "sha256": "87c8302d6a1f67fc78019c87ec8607e706529ff74d892581f3cf83d624eed223"
+      "sha256": "d86479733b86c44addb37d81b9d5caa6c10d0c70208dbf04d0d9319d4993efd9"
     },
     {
       "id": "S15",
@@ -140,15 +122,15 @@
       "heading": [
         "## 6. 不要な前置きと定型の結び"
       ],
-      "sha256": "56688eea0dba4176b6cbf02dcaa9d37ad9e553f11f26b8245665c141418d57ed"
+      "sha256": "cb1f62509fda0215dda7290ef5790fb3933bc834c686248b0809ba1b71e76719"
     },
     {
       "id": "S16",
       "file": "skills/yomiyasu/references/calques.md",
       "heading": [
-        "## 1. 4つの型"
+        "## 1. 5つの型"
       ],
-      "sha256": "96f6832c7faa256a7eef9b6d86641a4df3dcf83e08267579731b3593a3034465"
+      "sha256": "31d30b704662c667e72eafca5f96e15c0b14fad47a6af2a0e70c2861ad818d28"
     },
     {
       "id": "S17",
@@ -158,6 +140,15 @@
         "### ■ 原文にない人や担当を足した文"
       ],
       "sha256": "cc95e5cba96ab2bc826883e5b67aa3bd2842eaf8620732d759215fad6532bda0"
+    },
+    {
+      "id": "S18",
+      "file": "skills/yomiyasu/SKILL.md",
+      "heading": [
+        "## 1. 基本原則",
+        "### 直訳語、漢語の詰まり、連用形名詞"
+      ],
+      "sha256": "7dd2542453538902474fa9d729799e07d374ef87a9ef0505143b7bd625e60f9f"
     }
   ],
   "pieces": [
@@ -214,11 +205,12 @@
       "id": "T6",
       "kind": "rewritten",
       "role": "meaning",
-      "text": "文体（です・ます、だ・である）、見出しや箇条書きの数と順、指定の見出しの形、かぎかっこの中も保ってください。",
+      "text": "文体、見出しや箇条書きの数と順、指定の見出しの形、かぎかっこの中、漢語と和語の選び方も保ってください。",
       "sources": [
         "S04",
         "S05",
-        "S14"
+        "S14",
+        "S18"
       ]
     },
     {
@@ -228,9 +220,9 @@
       "text": "物を人のように動かす比喩、英語を一語ずつ写した言い回しや英語の術語に当てた漢字1字（版、頭、印）、本文に出てこない比喩の見出し、「重要なのは」などの前置き、意味の増えない「AではなくB」、絵文字、ダッシュ、間を作るだけの読点など、AIらしい言い回しはふつうの言葉に直し、読点は足さないでください。",
       "sources": [
         "S06",
-        "S07",
         "S05",
         "S16",
+        "S18",
         "S14",
         "S08",
         "S10",
@@ -262,8 +254,8 @@
       "role": "restraint",
       "text": "自然な文と慣用句も直さないでください。",
       "sources": [
-        "S07",
-        "S12"
+        "S06",
+        "S10"
       ]
     }
   ]

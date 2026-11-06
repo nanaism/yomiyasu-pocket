@@ -38,6 +38,8 @@ REQUIRED_RULES = [
     ("文体と見出しや箇条書きの数と順を保つ", "meaning", r"文体[^。]*見出しや箇条書きの数と順[^。]*保ってください。$"),
     ("指定された見出しの形を保つ", "meaning", r"指定の見出しの形[^。]*保ってください。$"),
     ("かぎかっこの中の言葉を保つ", "meaning", r"かぎかっこの中(?:の言葉)?[^。]*保ってください。$"),
+    # 2.0.0 から（本体 v3.0.0 の「漢語と和語の選び方は原文のままにします」）。「確認→確かめ」のように開かない
+    ("漢語と和語の選び方を保つ", "meaning", r"漢語と和語の選び方[^。]*保ってください。$"),
     ("つながりを変えない", "meaning", r"つながりを変える書き換え[^。]*しないでください。$"),
     ("本文だけを返す", "output", r"本文だけを返し[^。]*付けないでください。$"),
     # 1.2.0 から、直す決まりの文は「…直し、読点は足さないでください。」で終わる。「直さない」に変われば落ちる
@@ -118,7 +120,7 @@ def have_body():
 def need_body(test):
     if not have_body():
         test.skipTest("本体のチェックアウトがないので飛ばします: BODY_DIR=%s（%s がありません）。"
-                      "git clone --depth 1 --branch v2.5.0 https://github.com/nanaism/yomiyasu body で置けます。"
+                      "git clone --depth 1 --branch v3.0.0 https://github.com/nanaism/yomiyasu body で置けます。"
                       % (BODY, SKILL_REL))
 
 
@@ -141,7 +143,7 @@ def copy_repo(dst):
 
 
 class RealBodyTest(unittest.TestCase):
-    """本体 v2.5.0 から作る試験。"""
+    """本体 v3.0.0 から作る試験。"""
 
     def setUp(self):
         need_body(self)
@@ -367,8 +369,8 @@ class CommittedFilesTest(unittest.TestCase):
 class MeasurementsTest(unittest.TestCase):
     """measurements/ に置いた測定の結果の試験。本体がなくても動く。"""
 
-    FINAL = "E1"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
-    MEASURED = "E1"  # 本体と3回ずつ比べた候補。合格の線はこの候補で見る
+    FINAL = "F1"  # 最終の指示文の候補の名前（measurements/variants.json の鍵）
+    MEASURED = "F1"  # 本体と3回ずつ比べた候補。合格の線はこの候補で見る
     RESULT_KEYS = {"cond", "run", "doc", "status", "meaning_risk_count", "risks", "lint_before", "lint_after",
                    "lint_after_rules", "changed_per_1000", "identical", "service_tier"}
 
@@ -383,7 +385,7 @@ class MeasurementsTest(unittest.TestCase):
 
     def test_pass_line(self):
         # 合格の線: 本体と比べた候補の意味が変わる恐れの3回の合計が、本体の3回の合計を超えない
-        # （本体 v2.2.2 の測定では1回ずつも見たが、本体 v2.4.0 と v2.5.0 の測定の合格の線は3回の合計だけ）
+        # （本体 v2.2.2 の測定では1回ずつも見たが、本体 v2.4.0 からの測定の合格の線は3回の合計だけ）
         summary = self.load("summary.json")
         body = [v for k, v in summary.items() if k.startswith("body/")]
         final = [v for k, v in summary.items() if k.startswith("pocket_%s/" % self.MEASURED)]
@@ -396,8 +398,9 @@ class MeasurementsTest(unittest.TestCase):
         self.assertLessEqual(sum(v["meaning_risk"] for v in final), sum(v["meaning_risk"] for v in body))
 
     def test_pocket_only_risks_are_read(self):
+        # pocket にだけ出た恐れがなければ空でよい（本体 v3.0.0 の測定では0件）。あれば、どれにも読んだ記録がある
         only = self.load("pocket_only.json")
-        self.assertTrue(only)
+        self.assertIsInstance(only, list)
         for x in only:
             self.assertTrue(x.get("reading", "").strip(), x)
 
